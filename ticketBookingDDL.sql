@@ -1,6 +1,6 @@
-drop database x;
-create database x;
-use x;
+drop database if exists ticketbookingDB;
+create database ticketbookingDB;
+use ticketbookingDB;
 
 CREATE TABLE bank_account
 (
