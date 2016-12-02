@@ -18,8 +18,8 @@ CREATE TABLE route
 (
     route_id    VARCHAR(10) PRIMARY KEY NOT NULL,
     route_no    VARCHAR(15) NOT NULL,
-    first_station_id INT,
-    second_station_id INT,
+    first_station_id INT NOT NULL,
+    second_station_id INT NOT NULL,
     FOREIGN KEY (first_station_id)  REFERENCES main_stations(station_id) ON UPDATE CASCADE,
     FOREIGN KEY (second_station_id) REFERENCES main_stations(station_id) ON UPDATE CASCADE
 );
@@ -115,9 +115,9 @@ CREATE TABLE fare
 (
     fare_id           VARCHAR(15) PRIMARY KEY NOT NULL,
     route_id          VARCHAR(10) NOT NULL,
-    intermediate_id_1 VARCHAR(10),
-    intermediate_id_2 VARCHAR(10),
-    price_id          VARCHAR(10),
+    intermediate_id_1 VARCHAR(10) NOT NULL,
+    intermediate_id_2 VARCHAR(10) NOT NULL,
+    price_id          VARCHAR(10) NOT NULL,
     FOREIGN KEY (route_id)          REFERENCES route(route_id),
     FOREIGN KEY (intermediate_id_1) REFERENCES intermediate(intermediate_id),
     FOREIGN KEY (intermediate_id_2) REFERENCES intermediate(intermediate_id),
@@ -142,7 +142,7 @@ CREATE TABLE transaction
 (
     transaction_id  VARCHAR(15) PRIMARY KEY NOT NULL ,
     booking_id      VARCHAR(15) NOT NULL ,
-    amount          DOUBLE,
+    amount          DOUBLE NOT NULL,
     transfered      BOOLEAN,
     FOREIGN KEY (booking_id) REFERENCES booking(booking_id)
 );
