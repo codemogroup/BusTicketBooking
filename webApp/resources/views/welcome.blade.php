@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Lets Start Bitches</div>
+                <div class="title">Lets Start Bitches 1.0 </div>
             </div>
         </div>
     </body>
