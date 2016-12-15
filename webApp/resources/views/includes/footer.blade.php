@@ -4,8 +4,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">@yeild('Line1')</h5>
-                        <p class="grey-text text-lighten-4">@yeild('Line2')</p>
+                        <h5 class="white-text">@yield('Line1')</h5>
+                        <p class="grey-text text-lighten-4">@yield('Line2')</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text"></h5>

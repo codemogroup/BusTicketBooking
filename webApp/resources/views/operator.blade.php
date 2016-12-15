@@ -9,21 +9,21 @@
 @endsection
 
 
-// links in the right top corner
+{{--// links in the right top corner--}}
 
 @section('Link1')
-    Operator
+    Profile
 @endsection
 
 @section('Link2')
-    Operator
+    Settings
 @endsection
 
 @section('Link3')
-    Operator
+    Sign Out
 @endsection
 
-// tabs in navbar
+{{--// tabs in navbar--}}
 
 @section('Tab1')
     new booking
@@ -41,13 +41,13 @@
     verify journey
 @endsection
 
-// content
+{{-- content--}}
 
 @section('content')
 
 @endsection
 
-// footer
+ {{--footer--}}
 
 @section('Line1')
     Signed in as

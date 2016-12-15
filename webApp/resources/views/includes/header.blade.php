@@ -6,9 +6,9 @@
                 <a href="#" class="brand-logo">@yield('logo')</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">@yield('Link1')Profile</a></li>
+                    <li><a href="sass.html">@yield('Link1')</a></li>
                     <li><a href="badges.html">@yield('Link2')</a></li>
-                    <li><a href="collapsible.html">@yield('Link2')</a></li>
+                    <li><a href="collapsible.html">@yield('Link3')</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="sass.html">Sass</a></li>
