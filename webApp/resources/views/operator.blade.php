@@ -21,7 +21,7 @@
 @endsection
 
 @section('Tab3')
-    verify journey
+    verify  journey
 @endsection
 
 @section('content')
