@@ -17,7 +17,7 @@
 @endsection
 
 @section('Tab3')
-    cancel booking
+    cancel  booking
 @endsection
 
 @section('Tab3')
