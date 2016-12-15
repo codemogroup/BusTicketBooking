@@ -8,6 +8,23 @@
     Operator
 @endsection
 
+
+// links in the right top corner
+
+@section('Link1')
+    Operator
+@endsection
+
+@section('Link2')
+    Operator
+@endsection
+
+@section('Link3')
+    Operator
+@endsection
+
+// tabs in navbar
+
 @section('Tab1')
     new booking
 @endsection
@@ -24,6 +41,18 @@
     verify journey
 @endsection
 
+// content
+
 @section('content')
 
+@endsection
+
+// footer
+
+@section('Line1')
+    Signed in as
+@endsection
+
+@section('Line2')
+    Username
 @endsection
