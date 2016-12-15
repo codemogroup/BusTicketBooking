@@ -1,13 +1,13 @@
 @extends('../layout.master')
 
 @section('logo')
-  Login
+  Recover
 @endsection
 @section('content')
 
   <div id="login-page" class="row" style="width: 40%; margin-top: 4%">
     <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
+      <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%">
         <div class="row">
           <div class="input-field col s12 center">
             <img src="" alt="" class="responsive-img valign profile-image-login">
@@ -16,7 +16,7 @@
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
+            <i class="material-icons prefix">email</i>
             <input class="validate" id="email" type="email">
             <label for="email" data-error="wrong" data-success="right" class="">Email</label>
           </div>
