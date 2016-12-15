@@ -1,0 +1,3 @@
+create user 'codemo'@'localhost' identified by 'codemo@123';
+
+grant all on ticketbookingDB to 'codemo'@'localhost';
