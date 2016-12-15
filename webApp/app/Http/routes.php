@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('operator', function () {
-    return view('operator');
+     return view('operator');
 });
