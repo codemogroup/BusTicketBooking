@@ -20,7 +20,7 @@
     cancel booking
 @endsection
 
-@section('Tab3')
+@section('Tab4')
     verify journey
 @endsection
 
