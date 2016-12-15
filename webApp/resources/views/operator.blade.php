@@ -12,6 +12,14 @@
     new booking
 @endsection
 
+@section('Tab2')
+    issue tickets
+@endsection
+
+@section('Tab3')
+    cancel booking
+@endsection
+
 @section('content')
 
 @endsection
