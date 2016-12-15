@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/signin', function () {
     return view('authentication.signin');
 });
@@ -29,4 +30,9 @@ Route::get('/forgotpassword', function () {
 
 Route::get('/ownerreg', function () {
     return view('bus_owner.signup');
+});
+
+Route::get('operator', function () {
+     return view('operator');
+
 });
