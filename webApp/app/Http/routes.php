@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('authentication.login');
+});
+
+Route::get('/signup', function () {
+    return view('authentication.signup');
+});
+Route::get('/forgotpassword', function () {
+    return view('authentication.forgotpassword');
+});
+
+
+Route::get('/ownerreg', function () {
+    return view('bus_owner.signup');
+});
