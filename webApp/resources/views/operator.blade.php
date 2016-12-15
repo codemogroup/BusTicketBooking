@@ -20,6 +20,10 @@
     cancel booking
 @endsection
 
+@section('Tab3')
+    verify journey
+@endsection
+
 @section('content')
 
 @endsection
