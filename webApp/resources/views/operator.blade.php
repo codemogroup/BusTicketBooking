@@ -1,11 +1,15 @@
 @extends('layout.master')
 
 @section('title')
-    Welcome!
+    Control Panel:Operator
 @endsection
 
 @section('logo')
-    NTC
+    Operator
+@endsection
+
+@section('Tab1')
+    new booking
 @endsection
 
 @section('content')

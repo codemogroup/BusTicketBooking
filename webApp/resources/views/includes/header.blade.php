@@ -17,11 +17,10 @@
                 </ul>
 
                 <ul class="tabs tabs-transparent">
-                    <li class="tab"><a href="#test1">Test 1</a></li>
-                    <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-                    <li class="tab"><a class="active" href="#test2">Test 3</a></li>
-
-                    <li class="tab"><a href="#test4">Test 4</a></li>
+                    <li class="tab"><a class="active" href="#test1">@yield('Tab1')</a></li>
+                    <li class="tab"><a class="active" href="#test2">@yield('Tab2')</a></li>
+                    <li class="tab"><a class="active" href="#test2">@yield('Tab3')</a></li>
+                    <li class="tab"><a class="active" href="#test4">@yield('Tab4')</a></li>
                 </ul>
             </div>
         </nav>
