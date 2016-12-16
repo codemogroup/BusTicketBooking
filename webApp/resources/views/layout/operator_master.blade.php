@@ -21,15 +21,16 @@
 
     <div id="wrapper">
         @include('includes.operator.operator_header')
-    <div id="content" style="padding: 5px">
+    <div id="content" >
         @yield('content')
     </div><!-- #content -->
         @include('includes.operator.operator_footer')
     </div><!-- #wrapper -->
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
 
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
 </html>
