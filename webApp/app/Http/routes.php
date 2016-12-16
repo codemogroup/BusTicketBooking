@@ -18,3 +18,19 @@ Route::get('/', function () {
 Route::get('operator', function () {
      return view('operator');
 });
+
+Route::get('operator_new_booking', function () {
+    return view('operator_new_booking');
+});
+
+Route::get('operator_cancel_booking', function () {
+    return view('operator_cancel_booking');
+});
+
+Route::get('operator_issue_tickets', function () {
+    return view('operator_issue_tickets');
+});
+
+Route::get('operator_verify_journey', function () {
+    return view('operator_verify_journey');
+});
