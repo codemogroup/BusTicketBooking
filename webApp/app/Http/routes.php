@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('ntc', function () {
+    return view('ntc');
+});
+
+Route::get('ntctime', function () {
+    return view('ntcTimeTable');
+});
+
+Route::get('addnewbus', function () {
+    return view('addNewBus');
+});
+
+Route::get('addnewroute', function () {
+    return view('addNewRoute');
+});
+
+

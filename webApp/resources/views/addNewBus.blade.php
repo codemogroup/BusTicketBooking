@@ -1,13 +1,10 @@
 @extends('layout.ntcmaster')
 
 @section('title')
-    Welcome!
-@endsection
-
-@section('logo')
-    NTC
+    NIC Admin
 @endsection
 
 @section('content')
 
 @endsection
+

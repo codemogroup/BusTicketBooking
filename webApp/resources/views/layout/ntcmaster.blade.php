@@ -6,6 +6,7 @@
     <title>@yield('title')</title>
 
     <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
@@ -14,14 +15,19 @@
 
 <body>
 <div id="wrapper">
-    @include('includes.header')
 
-    <div id="content">
-        @yield('content')
-    </div><!-- #content -->
-
-
-    @include('includes.footer')
+    @include('includes.ntcheader')
+    <div class="row" >
+        <div class="col s3 " id="leftcolumn" >
+            @include('includes.ntcNotificationBar')
+        </div>
+        <div class="col s9 " id="rightcolumn">
+            <div>
+                @yield('content')
+            </div><!-- #content -->
+        </div>
+    </div>
+   {{-- @include('includes.footer')--}}
 
 </div><!-- #wrapper -->
 
