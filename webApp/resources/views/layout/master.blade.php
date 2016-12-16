@@ -21,7 +21,7 @@
     </div><!-- #content -->
 
 
-    @include('includes.footer')
+{{--    @include('includes.footer')--}}
 
 </div><!-- #wrapper -->
 
