@@ -16,21 +16,21 @@ Route::get('/', function () {
 });
 
 Route::get('operator_new_booking', function () {
-    return view('operator_new_booking');
+    return view('operator.operator_new_booking');
 });
 Route::get('operator_cancel_booking', function () {
-    return view('operator_cancel_booking');
+    return view('operator.operator_cancel_booking');
 });
 Route::get('operator_issue_tickets', function () {
-    return view('operator_issue_tickets');
+    return view('operator.operator_issue_tickets');
 });
 Route::get('operator_verify_journey', function () {
-    return view('operator_verify_journey');
+    return view('operator.operator_verify_journey');
 });
 
 
 Route::get('operator', function () {
-     return view('operator');
+     return view('operator.operator');
 });
 
 Route::get('/signin', function () {

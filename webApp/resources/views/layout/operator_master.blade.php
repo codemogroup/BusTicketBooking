@@ -20,11 +20,11 @@
 <body>
 
     <div id="wrapper">
-        @include('includes.operator_header')
+        @include('includes.operator.operator_header')
     <div id="content" style="padding: 5px">
         @yield('content')
     </div><!-- #content -->
-        @include('includes.operator_footer')
+        @include('includes.operator.operator_footer')
     </div><!-- #wrapper -->
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

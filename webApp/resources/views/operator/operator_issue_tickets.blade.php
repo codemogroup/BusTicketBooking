@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="row"">
+    <div class="row">
         <div class="col s3" id ="leftSide">
             <div class="row" style="padding:30px ">
                 <div class="input-field">
