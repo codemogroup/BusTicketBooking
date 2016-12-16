@@ -37,6 +37,10 @@ Route::get('operator', function () {
 
 });
 
+Route::get('/ownerhome',function (){
+   return view('bus_owner.ownerhome'); 
+})->name('ownerhome');
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
