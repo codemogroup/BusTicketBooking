@@ -28,6 +28,7 @@ Route::get('operator_verify_journey', function () {
     return view('operator_verify_journey');
 });
 
+
 Route::get('operator', function () {
      return view('operator');
 });
