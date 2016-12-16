@@ -7,14 +7,15 @@
 
     <div id="signup-page" class="row">
         <div class="col s12 z-depth-6 card-panel" style="padding: 3%">
-            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%">
+            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="/submitsigninowner">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
 
                 </div>
                 <div class="row margin">
                     <div class="input-field col s4">
                         <i class="material-icons prefix">perm_identity</i>
-                        <input id="name" type="text">
+                        <input id="name" type="text" name="name">
                         <label for="name">Name</label>
                     </div>
 
@@ -26,37 +27,44 @@
                     </div>
                     <div class="input-field col s4">
                         <i class="material-icons prefix">location_on</i>
-                        <input id="address" type="text">
+                        <input id="address" type="text" name="address">
                         <label for="address">Address</label>
                     </div>
                 </div>
+
                 <div class="row margin">
                     <div class="input-field col s4">
                         <i class="material-icons prefix">email</i>
-                        <input class="validate" id="email" type="email">
+                        <input class="validate" id="email" name="email" type="email">
                         <label for="email" data-error="wrong" data-success="right">Email</label>
                     </div>
 
                     <div class="input-field col s4">
                         <i class="material-icons prefix">phone</i>
-                        <input id="telephone" type="text">
+                        <input id="telephone" type="text" name="telephone">
                         <label for="telephone">Telephone</label>
                     </div>
                     <div class="input-field col s4">
                         <i class="material-icons prefix">credit_card</i>
-                        <input id="account_num" type="text">
+                        <input id="account_num" type="text" name="account_num">
                         <label for="account_num">Bank Account Number</label>
                     </div>
                 </div>
+
                 <div class="row margin">
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix" style="color: purple">contacts</i>
+                        <input  id="token" name="token" type="text">
+                        <label for="token">Token got from NTC</label>
+                    </div>
+                    <div class="input-field col s4">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="password" type="password">
+                        <input id="password" type="password" name="password">
                         <label for="password">Password</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <i class="material-icons prefix">check_circle</i>
-                        <input id="password_confirm" type="password">
+                        <input id="password_confirm" type="password" name="password_confirm">
                         <label for="password_confirm">Confirm Password</label>
                     </div>
                 </div>

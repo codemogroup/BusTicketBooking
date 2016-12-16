@@ -36,3 +36,8 @@ Route::get('operator', function () {
      return view('operator');
 
 });
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/submitsigninowner', 'busOwnerController@createOwner');
+});
