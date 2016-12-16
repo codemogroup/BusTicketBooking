@@ -1,4 +1,4 @@
-<div id="footer">
+<div id="footer" >
     <footer class="page-footer " style="background-color: #2e6da4">
         {{--<div class="footer-color">--}}
         <div class="container">

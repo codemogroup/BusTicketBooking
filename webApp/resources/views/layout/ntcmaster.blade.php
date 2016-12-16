@@ -16,7 +16,9 @@
 <body>
 <div id="wrapper">
 
-    @include('includes.ntcheader')
+        @include('includes.ntcheader')
+
+
     <div class="row" >
         <div class="col s3 " id="leftcolumn" >
             @include('includes.ntcNotificationBar')
@@ -27,7 +29,7 @@
             </div><!-- #content -->
         </div>
     </div>
-   {{-- @include('includes.footer')--}}
+   {{--@include('includes.footer')--}}
 
 </div><!-- #wrapper -->
 
