@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//////////////////////// operator routing starts
+
 Route::get('operator_new_booking', function () {
     return view('operator.operator_new_booking');
 });
@@ -32,6 +34,8 @@ Route::get('operator_verify_journey', function () {
 Route::get('operator', function () {
      return view('operator.operator');
 });
+
+///////////////////////////////////////////////////////// operator routing ends
 
 Route::get('/signin', function () {
     return view('authentication.signin');
