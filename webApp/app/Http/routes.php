@@ -49,6 +49,18 @@ Route::get('/ownerreg', function () {
     return view('bus_owner.signup');
 });
 
+
+Route::get('operator', function () {
+     return view('operator');
+
+});
+
+Route::get('/ownerhome',function (){
+   return view('bus_owner.ownerhome'); 
+})->name('ownerhome');
+
+
+
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
 });
