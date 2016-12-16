@@ -35,7 +35,7 @@ Route::get('operator', function () {
      return view('operator.operator');
 });
 
-///////////////////////////////////////////////////////// operator routing ends
+//////////////////////// operator routing ends
 
 Route::get('/signin', function () {
     return view('authentication.signin');
