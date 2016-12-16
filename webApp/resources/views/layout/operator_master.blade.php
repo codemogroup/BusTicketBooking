@@ -21,7 +21,7 @@
 
     <div id="wrapper">
         @include('includes.operator.operator_header')
-    <div id="content" style="padding: 5px">
+    <div id="content" >
         @yield('content')
     </div><!-- #content -->
         @include('includes.operator.operator_footer')
