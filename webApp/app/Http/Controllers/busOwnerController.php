@@ -23,7 +23,7 @@ class busOwnerController extends Controller
             $request['password'],
         ]);
 
-        return redirect()->back();
+        return redirect()->route('ownerhome');
         }
   
 }
