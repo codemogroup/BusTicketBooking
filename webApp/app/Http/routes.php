@@ -57,6 +57,21 @@ Route::get('/ownerhome',function (){
    return view('bus_owner.ownerhome'); 
 })->name('ownerhome');
 
+Route::get('/passenger_home',function (){
+    return view('passenger.passenger_home');
+});
+Route::get('/passenger_search',function (){
+    return view('passenger.passenger_search');
+});
+Route::get('/passenger_new_booking',function (){
+    return view('passenger.passenger_new_booking');
+});
+Route::get('/passenger_cancel_booking',function (){
+    return view('passenger.passenger_cancel_booking');
+});
+Route::get('/passenger_view_booking',function (){
+    return view('passenger.passenger_view_booking');
+});
 
 
 Route::group(['middleware' => ['web']], function () {
