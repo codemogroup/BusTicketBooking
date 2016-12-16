@@ -31,6 +31,7 @@ Route::get('/forgotpassword', function () {
     return view('authentication.forgotpassword');
 });
 
+//
 
 Route::get('/ownerreg', function () {
     return view('bus_owner.signup');
