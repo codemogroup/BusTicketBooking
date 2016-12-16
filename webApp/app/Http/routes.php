@@ -11,6 +11,42 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::get('operator_new_booking', function () {
+    return view('operator_new_booking');
+});
+Route::get('operator_cancel_booking', function () {
+    return view('operator_cancel_booking');
+});
+Route::get('operator_issue_tickets', function () {
+    return view('operator_issue_tickets');
+});
+Route::get('operator_verify_journey', function () {
+    return view('operator_verify_journey');
+});
+
+
+Route::get('operator', function () {
+     return view('operator');
+});
+
+Route::get('/signin', function () {
+    return view('authentication.signin');
+});
+
+Route::get('/signup', function () {
+    return view('authentication.signup');
+});
+Route::get('/forgotpassword', function () {
+    return view('authentication.forgotpassword');
+});
+//
+
+Route::get('/ownerreg', function () {
+    return view('bus_owner.signup');
+});
+
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/submitsigninowner', 'busOwnerController@createOwner');
 });
