@@ -54,11 +54,6 @@ Route::get('/ownerreg', function () {
 });
 
 
-Route::get('operator', function () {
-     return view('operator');
-
-});
-
 Route::get('/ownerhome',function (){
    return view('bus_owner.ownerhome'); 
 })->name('ownerhome');
