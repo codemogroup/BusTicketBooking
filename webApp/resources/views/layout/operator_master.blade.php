@@ -11,13 +11,17 @@
 
     <!-- Compiled and minified JavaScript -->
     <link rel="stylesheet" href="src/main.css">
+
+    {{--icons materialze--}}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
 
     <div id="wrapper">
         @include('includes.operator_header')
-    <div id="content">
+    <div id="content" style="padding: 5px">
         @yield('content')
     </div><!-- #content -->
         @include('includes.operator_footer')
