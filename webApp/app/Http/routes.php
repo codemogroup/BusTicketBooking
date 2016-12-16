@@ -15,6 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('operator', function () {
      return view('operator');
+});
+
+Route::get('/signin', function () {
+    return view('authentication.signin');
+});
+
+Route::get('/signup', function () {
+    return view('authentication.signup');
+});
+Route::get('/forgotpassword', function () {
+    return view('authentication.forgotpassword');
+});
+
+
+Route::get('/ownerreg', function () {
+    return view('bus_owner.signup');
+});
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/submitsigninowner', 'busOwnerController@createOwner');
 });
