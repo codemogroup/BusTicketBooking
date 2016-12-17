@@ -15,38 +15,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//////////////////////// operator routing starts
+
 Route::get('operator_new_booking', function () {
-    return view('operator_new_booking');
+    return view('operator.operator_new_booking');
 });
 Route::get('operator_cancel_booking', function () {
-    return view('operator_cancel_booking');
+    return view('operator.operator_cancel_booking');
 });
 Route::get('operator_issue_tickets', function () {
-    return view('operator_issue_tickets');
+    return view('operator.operator_issue_tickets');
 });
 Route::get('operator_verify_journey', function () {
-    return view('operator_verify_journey');
+    return view('operator.operator_verify_journey');
 });
 
 
 Route::get('operator', function () {
+
     return view('operator');
 });
 
 
-Route::get('/signup', function () {
-    return view('authentication.signup');
+     return view('operator.operator');
 });
+
+//////////////////////// operator routing ends
+
+
+
+
 Route::get('/forgotpassword', function () {
     return view('authentication.forgotpassword');
 });
-//
+
+
 
 
 Route::get('operator', function () {
     return view('operator');
 
 });
+
 
 Route::get('/ownerhome', [
     'uses' => 'busOwnerController@home',
