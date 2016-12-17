@@ -15,6 +15,7 @@ class operatorController extends Controller
         DB::statement(' CREATE VIEW jour AS SELECT column_name(s) FROM table_name WHERE condition');
 
 
+
         $results =DB::select('select booking.date,booking.seats ,customer.name ,bus.plateNo
                   from booking 
                   join customer on booking.customer_id=customer.customer_id 
