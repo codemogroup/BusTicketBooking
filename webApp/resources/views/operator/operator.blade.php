@@ -8,4 +8,6 @@
 
 @section('content')
 
+    <img class="materialboxed" width="1000" height="400" src="bus.jpg" style=" padding-left: 200px">
+
 @endsection
