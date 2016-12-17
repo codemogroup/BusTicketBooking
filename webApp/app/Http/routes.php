@@ -30,12 +30,9 @@ Route::get('operator_verify_journey', function () {
 
 
 Route::get('operator', function () {
-     return view('operator');
+    return view('operator');
 });
 
-Route::get('/signin', function () {
-    return view('authentication.signin');
-});
 
 Route::get('/signup', function () {
     return view('authentication.signup');
@@ -45,22 +42,37 @@ Route::get('/forgotpassword', function () {
 });
 //
 
-Route::get('/ownerreg', function () {
+
+Route::get('operator', function () {
+    return view('operator');
+
+});
+
+Route::get('/ownerhome', [
+    'uses' => 'busOwnerController@home',
+    'as'=>'ownerhome',
+//    'middleware'=>'auth'
+]);
+
+
+Route::get('ownersignup', function () {
     return view('bus_owner.signup');
 });
 
-
-Route::get('operator', function () {
-     return view('operator');
-
+Route::get('ownersignin', function () {
+    return view('bus_owner.signin');
 });
-
-Route::get('/ownerhome',function (){
-   return view('bus_owner.ownerhome'); 
-})->name('ownerhome');
-
 
 
 Route::group(['middleware' => ['web']], function () {
-    Route::post('/submitsigninowner', 'busOwnerController@createOwner');
+    Route::post('/submitownersignup', 'busOwnerController@createOwner');
+    Route::post('/submitownersignin', 'busOwnerController@signIn');
+//    Route::post('/submitownersignin', function (){
+//        return 'hi';
+//    });
+});
+
+
+Route::get('testing2', function () {
+    return view('testing2');
 });
