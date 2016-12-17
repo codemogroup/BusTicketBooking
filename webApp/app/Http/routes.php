@@ -58,7 +58,7 @@ Route::get('/ownerhome',function (){
 })->name('ownerhome');
 
 Route::get('/passenger_home',function (){
-    return view('passenger.passenger_home');
+    return view('passenger.passenger_search');
 });
 Route::get('/passenger_search',function (){
     return view('passenger.passenger_search');
