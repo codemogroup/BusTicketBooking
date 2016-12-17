@@ -5,3 +5,12 @@
     Home
 @endsection
 
+@section('content')
+
+
+
+
+@endsection
+
+
+

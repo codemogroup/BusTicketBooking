@@ -32,13 +32,12 @@ Route::get('operator_verify_journey', function () {
 
 
 Route::get('operator', function () {
-
-    return view('operator');
+    return view('operator.operator');
 });
 
 
-     return view('operator.operator');
-});
+
+
 
 //////////////////////// operator routing ends
 
