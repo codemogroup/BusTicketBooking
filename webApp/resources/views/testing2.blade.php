@@ -1,39 +1,42 @@
+{{--<!DOCTYPE html>--}}
+{{--<html>--}}
+{{--<head>--}}
+{{--<title>The Materialize Tabs Example</title>--}}
+{{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
+{{--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">--}}
+{{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">--}}
+{{--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>--}}
+{{--</head>--}}
+{{--<body class="container">--}}
+{{--<h3>Tabs Demo</h3>--}}
+{{--<div class="row">--}}
+{{--<div class="col s12">--}}
+{{--<ul class="tabs">--}}
+{{--<li class="tab col s3"><a href="#inbox">Inbox</a></li>--}}
+{{--<li class="tab col s3"><a class="active" href="#unread">Unread</a></li>--}}
+{{--<li class="tab col s3 disabled"><a href="#outbox">Outbox (Disabled)</a></li>--}}
+{{--<li class="tab col s3"><a href="#sent">Sent</a></li>--}}
+{{--</ul>--}}
+{{--</div>--}}
+{{--<div id="inbox" class="col s12">Inbox</div>--}}
+{{--<div id="unread" class="col s12">Unread</div>--}}
+{{--<div id="outbox" class="col s12">Outbox (Disabled)</div>--}}
+{{--<div id="sent" class="col s12">Sent</div>--}}
+{{--</div>--}}
+{{--</body>--}}
+{{--</html>--}}
+
 @extends('layout.masterbasics')
 
 @section('body')
 
-    <div class="carousel carousel-slider center" data-indicators="true">
-
-        <div class="carousel-fixed-item row" style="width: 50%;margin-left: 25% ">
-            <div class=" col s4">
-                <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Pessnger</a>
-            </div>
-
-            <div class="col s4">
-                <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Bus owner</a>
-            </div>
-
-            <div class="col s4 ">
-                <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Operator</a>
-            </div>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-            <h2>First Panel</h2>
-            <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-            <h2>Second Panel</h2>
-            <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-            <h2>Third Panel</h2>
-            <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-            <h2>Fourth Panel</h2>
-            <p class="white-text">This is your fourth panel</p>
-        </div>
+    <div class="input-field col s4">
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
     </div>
-
-
 @endsection

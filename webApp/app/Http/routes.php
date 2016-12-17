@@ -58,11 +58,9 @@ Route::get('operator', function () {
 });
 
 
-Route::get('/ownerhome', [
-    'uses' => 'busOwnerController@home',
-    'as'=>'ownerhome',
-//    'middleware'=>'auth'
-]);
+Route::get('ownerhome',function($email) {
+    return view('bus_owner.ownerhome')->with('email',$email);
+});
 
 
 Route::get('ownersignup', function () {
@@ -78,6 +76,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/submitownersignup', 'busOwnerController@createOwner');
     Route::post('/submitownersignin', 'busOwnerController@signIn');
     Route::post('submit_nic', 'operatorController@getTicket');
+
+    Route::post('addbankaccount','busOwnerController@addAccount');
 //    Route::post('/submitownersignin', function (){
 //        return 'hi';
 //    });
@@ -89,19 +89,12 @@ Route::get('testing2', function () {
     return view('testing2');
 });
 
-Route::get('ownerhome', function () {
-    return view('bus_owner.ownerhome');
-});
+//Route::get('/ownerhome', function () {
+//    return view('bus_owner.ownerhome');
+//});
 
-Route::get('bankAccount', function () {
-    return view('bus_owner.bankAccount');
-});
-Route::get('addbus', function () {
-    return view('bus_owner.addbus');
-});
-Route::get('editbus', function () {
-    return view('bus_owner.editbus');
-});
 
-Route::get('addbankaccount','busOwnerController@addAccount');
+
+
+//Route::post('addbankaccount','busOwnerController@addAccount');
 
