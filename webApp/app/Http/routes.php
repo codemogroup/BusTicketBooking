@@ -23,14 +23,15 @@ Route::get('operator_new_booking', function () {
 Route::get('operator_cancel_booking', function () {
     return view('operator.operator_cancel_booking');
 });
-Route::get('operator_issue_tickets', function () {
-    return view('operator.operator_issue_tickets');
+Route::get('operator_search_tickets', function () {
+    return view('operator.operator_search_tickets');
+});
+Route::get('operator_show_tickets', function () {
+    return view('operator.operator_show_tickets');
 });
 Route::get('operator_verify_journey', function () {
     return view('operator.operator_verify_journey');
 });
-
-
 Route::get('operator', function () {
     return view('operator.operator');
 });
@@ -52,7 +53,7 @@ Route::get('/forgotpassword', function () {
 
 
 Route::get('operator', function () {
-    return view('operator');
+    return view('operator.operator');
 
 });
 
@@ -76,12 +77,31 @@ Route::get('ownersignin', function () {
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitownersignup', 'busOwnerController@createOwner');
     Route::post('/submitownersignin', 'busOwnerController@signIn');
+    Route::post('submit_nic', 'operatorController@getTicket');
 //    Route::post('/submitownersignin', function (){
 //        return 'hi';
 //    });
 });
 
 
+
 Route::get('testing2', function () {
     return view('testing2');
 });
+
+Route::get('ownerhome', function () {
+    return view('bus_owner.ownerhome');
+});
+
+Route::get('bankAccount', function () {
+    return view('bus_owner.bankAccount');
+});
+Route::get('addbus', function () {
+    return view('bus_owner.addbus');
+});
+Route::get('editbus', function () {
+    return view('bus_owner.editbus');
+});
+
+Route::get('addbankaccount','busOwnerController@addAccount');
+

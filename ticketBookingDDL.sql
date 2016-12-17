@@ -59,7 +59,7 @@ CREATE TABLE admin
 
 CREATE TABLE operator
 (
-    admin_id    VARCHAR(15) PRIMARY KEY NOT NULL,
+    operator_id    VARCHAR(15) PRIMARY KEY NOT NULL,
     name        VARCHAR(150) NOT NULL,
     nic         VARCHAR(11) NOT NULL,
     telephone   VARCHAR(11) NOT NULL,

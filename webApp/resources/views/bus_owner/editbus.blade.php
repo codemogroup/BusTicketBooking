@@ -2,17 +2,16 @@
 
 
 @section('title')
-    Home
+    Edit Bus
 @endsection
 
+@section('tab4')
+    class="active"
+@endsection
 @section('body')
 
     @include('bus_owner.includes.tabedHeader')
 
-    <h1>email:{{$email}}</h1>
 
 
 @endsection
-
-
-

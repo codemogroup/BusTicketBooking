@@ -38,7 +38,7 @@ class busOwnerController extends Controller
 
 //        return $passwordarray;
         if ($password == $request['password']) {
-            return redirect()->route('ownerhome');
+            return redirect()->route('ownerhome',['email'=>$email]);
         } else {
             return redirect()->back();
         }
@@ -47,6 +47,10 @@ class busOwnerController extends Controller
 
     public function home(){
         return view('bus_owner.ownerhome');
+    }
+    
+    public function addAccount(Request $request, $email){
+        return $email;
     }
 
 }

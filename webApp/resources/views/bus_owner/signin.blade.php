@@ -9,7 +9,7 @@
 
     <div id="signup-page" class="row">
         <div class="col s12 z-depth-6 " style="padding: 3%">
-            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="/submitownersignin">
+            <form class="login-form row" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="/submitownersignin">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row margin">
                     <div class="input-field col s12">
