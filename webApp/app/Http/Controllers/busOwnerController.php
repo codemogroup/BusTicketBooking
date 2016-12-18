@@ -44,8 +44,7 @@ class busOwnerController extends Controller
         if ($password == $request['password']) {
 
             session()->put(['user'=>$email]);
-
-//            return redirect('ownerhome')->with(['email'=>$email]);
+            
             return redirect('ownerhome');
         } else {
             return redirect()->back();
