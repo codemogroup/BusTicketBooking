@@ -77,8 +77,8 @@ CREATE TABLE customer
     name        VARCHAR(150) NOT NULL,
     nic         VARCHAR(11) NOT NULL,
     telephone   VARCHAR(11) NOT NULL,
-    address     VARCHAR(250) NOT NULL,
-    email       VARCHAR(100)
+    address     VARCHAR(250) NOT NULL
+
 );
 
 CREATE TABLE bus

@@ -17,10 +17,10 @@ INSERT INTO `main_stations`( `station`) VALUES ('ampara');
 INSERT INTO `main_stations`( `station`) VALUES ('trinko');
 INSERT INTO `main_stations`( `station`) VALUES ('jaffna');
 
-INSERT INTO `customer`(`name`, `nic`, `telephone`, `address`, `email`) VALUES ('kamal','5678956231v','0754589784','41/a,gampaha,srilanka','kamal@gmail.com');
-INSERT INTO `customer`( `name`, `nic`, `telephone`, `address`, `email`) VALUES ('namal','5676356231v','0726532148','96/c,gampaha,srilanka','namal@gmail.com');
-INSERT INTO `customer`(`name`, `nic`, `telephone`, `address`, `email`) VALUES ('jagath','7854263157v','0786523145','5/l,miriswatta,srilanka','jagath@gmail.com');
-INSERT INTO `customer`( `name`, `nic`, `telephone`, `address`, `email`) VALUES ('damith','7854741157v','078965145','51/k,galle,srilanka','damith@gmail.com');
+INSERT INTO `customer`(`name`, `nic`, `telephone`, `address`) VALUES ('kamal','5678956231v','0754589784','41/a,gampaha,srilanka');
+INSERT INTO `customer`( `name`, `nic`, `telephone`, `address`) VALUES ('namal','5676356231v','0726532148','96/c,gampaha,srilanka');
+INSERT INTO `customer`(`name`, `nic`, `telephone`, `address`) VALUES ('jagath','7854263157v','0786523145','5/l,miriswatta,srilanka');
+INSERT INTO `customer`( `name`, `nic`, `telephone`, `address`) VALUES ('damith','7854741157v','078965145','51/k,galle,srilanka');
 
 INSERT INTO `route`( `route_no`, `first_station_id`, `second_station_id`) VALUES ('1','1','2');
 INSERT INTO `route`(`route_no`, `first_station_id`, `second_station_id`) VALUES ('2','1','3');
