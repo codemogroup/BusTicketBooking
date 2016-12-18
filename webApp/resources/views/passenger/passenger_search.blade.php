@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+
     <div class="row">
         <form class="col s12" method="post" action="/passenger_search">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

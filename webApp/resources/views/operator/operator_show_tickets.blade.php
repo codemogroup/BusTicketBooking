@@ -8,11 +8,11 @@
 @endsection
 
 @section('content')
-    <div class="row"">
+    <div class="row">
         <div class="col s3" id ="leftSide">
             <div class="row" style="padding:30px ">
                 <div class="input-field">
-                    <input placeholder="Enter here" id="first_name2" type="text" class="validate">
+                    <input placeholder="Enter here" id="nic" type="text" class="validate">
                     <label class="active" for="first_name2" style="font-size: large">NIC Number</label>
                 </div>
 
@@ -31,15 +31,24 @@
                     Name
                 </div>
                 <div class="col s6">
-                    fghb
+                    {{$name }}
                 </div>
+            </div>
+            <div class="row" style="padding:3px ">
+                <div class="col s6" style="background-color: rgba(71, 58, 83, 0.2)">
+                    Bus
+                </div>
+                <div class="col s6">
+                    {{ }}
+                </div>
+
             </div>
             <div class="row" style="padding:3px ">
                 <div class="col s6" style="background-color: rgba(71, 58, 83, 0.2)">
                     From
                 </div>
                 <div class="col s6">
-
+                    {{$id }}
                 </div>
 
             </div>
@@ -48,7 +57,7 @@
                     To
                 </div>
                 <div class="col s6">
-
+                    {{ }}
                 </div>
 
             </div>
@@ -57,7 +66,7 @@
                     Seats
                 </div>
                 <div class="col s6">
-
+                    {{ }}
                 </div>
 
             </div>
@@ -67,7 +76,7 @@
                     Seat Numbers
                 </div>
                 <div class="col s6">
-
+                    {{ }}
                 </div>
 
             </div>

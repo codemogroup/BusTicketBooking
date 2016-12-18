@@ -1,5 +1,5 @@
 <div id="footer">
-    <footer class="page-footer " style="background-color: #2e6da4">
+    <footer class="page-footer " style="background-color: #2e">
         {{--<div class="footer-color">--}}
             <div class="container">
                 <div class="row">

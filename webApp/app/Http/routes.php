@@ -95,6 +95,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/passenger_search', 'passenger_controller@passenger_search');
     Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
     });

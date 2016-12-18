@@ -16,6 +16,18 @@ class passenger_controller extends Controller{
                 'bus_type' =>'required'
             ]
             );
+        $base_station=strtolower($request['base_station']);
+        $destination=strtolower($request['destination']);
+        $date=strtotime($request['journey_date']);
+        $bus_type=$request['bus_type'];
+        $current_date = strtotime(date('d-m-Y '));
+
+        if($date<$current_date){
+            return redirect('/passenger_search');
+        }
+
+
+        
 
 
 
