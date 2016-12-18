@@ -25,12 +25,12 @@ Route::get('operator_issue_tickets', function () {
 Route::get('operator_verify_journey', function () {
     return view('operator_verify_journey');
 });
-<<<<<<< HEAD
 
 
-Route::get('operator', function () {
+
+/*Route::get('operator', function () {
      return view('operator');
-});
+});*/
 
 Route::get('/signin', function () {
     return view('authentication.signin');
@@ -39,7 +39,7 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('authentication.signup');
 });
-=======
+
 Route::get('operator', function () {
     return view('operator.operator');
 });
@@ -48,19 +48,18 @@ Route::get('operator', function () {
 //////////////////////// operator routing ends
 
 
->>>>>>> master
+
 Route::get('/forgotpassword', function () {
     return view('authentication.forgotpassword');
 });
 //
 
-<<<<<<< HEAD
+
 Route::get('/ownerreg', function () {
     return view('bus_owner.signup');
 });
 
-=======
->>>>>>> master
+
 
 Route::get('operator', function () {
      return view('operator');
@@ -71,13 +70,13 @@ Route::get('/ownerhome',function (){
    return view('bus_owner.ownerhome'); 
 })->name('ownerhome');
 
-<<<<<<< HEAD
+
 Route::get('/passenger_home',function (){
     return view('passenger.passenger_search');
 });
 Route::get('/passenger_search',function (){
     return view('passenger.passenger_search');
-=======
+
 //Route::get('ownerhome',function($email) {
 //    return view('bus_owner.ownerhome')->with('email',$email);
 //});
@@ -85,12 +84,12 @@ Route::get('/passenger_search',function (){
 
 Route::get('ownersignup', function () {
     return view('bus_owner.signup');
->>>>>>> master
+
 });
 Route::get('/passenger_new_booking',function (){
     return view('passenger.passenger_new_booking');
 });
-<<<<<<< HEAD
+
 Route::get('/passenger_cancel_booking',function (){
     return view('passenger.passenger_cancel_booking');
 });
@@ -117,7 +116,8 @@ Route::get('/passenger_signin', function () {
 });
 Route::get('/passenger_signup', function () {
     return view('authentication.passenger_signup');
-=======
+});
+
 
 Route::get('signout','busOwnerController@signout');
 
@@ -144,10 +144,10 @@ Route::get('ownerhome', 'busOwnerController@getHome'
 
 Route::get('testing2', function () {
     return view('testing2');
->>>>>>> master
+
 });
 
-<<<<<<< HEAD
+
 
 
 Route::group(['middleware' => ['web']], function () {
@@ -176,8 +176,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/passenger_signup', function () {
         return view('authentication.passenger_signup');
     });
-=======
+
 //Route::post('addbankaccount','busOwnerController@addAccount');
->>>>>>> master
+
 
 });
