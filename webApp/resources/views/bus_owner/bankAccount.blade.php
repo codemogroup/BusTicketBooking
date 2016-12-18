@@ -2,7 +2,14 @@
     <div class="row">
         <div class="col s8" style=" font-size: 18pt">
             <div class="row">{{$message}}</div>
-            <div class="row">{{$message2}}</div>
+            @if($true)
+                <div class="row">{{$message2}}</div>
+            @else
+                {{'Add your bank acoount'}}
+
+            @endif
+
+
 
         </div>
 
@@ -13,7 +20,7 @@
 
                 <input type="hidden" name="email" value="{{ $email }}">
 
-
+{{--{{$email}}--}}
                 <div class="row">
                     <div class="input-field  col s12">
                         <input id="accountnum" name='accountnum' type="text">

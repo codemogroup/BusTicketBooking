@@ -3,7 +3,7 @@
 @extends('../layout.master')
 
 @section('logo')
-    Sign Up
+    Sign In
 @endsection
 @section('content')
 
@@ -39,7 +39,7 @@
                     <div class="input-field col s10 center" style="width: 70%;margin-left: 15%">
                         {{--<a href="login.html" class="btn waves-effect waves-light col s12">Login</a>--}}
                         <button class="btn waves-effect waves-light col s12 z-depth-5" style="background-color:  #2e6da4"
-                                type="submit">Sign up
+                                type="submit">Sign In
                         </button>
                     </div>
                 </div>

@@ -10,10 +10,10 @@
 
 
     <div class="container" >
-        <div id="home">home</div>
+        <div id="home"></div>
         <div id="bankaccount" style="margin-top: 200px">@include('bus_owner.bankAccount')</div>
         <div id="addbus">@include('bus_owner.addbus')</div>
-        <div id="editbus">eb</div>
+        <div id="editbus"></div>
     </div>
 
 
