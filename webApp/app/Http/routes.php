@@ -72,10 +72,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/submitownersignin','busOwnerController@signIn');
     Route::post('submit_nic', 'operatorController@getTicket');
 
+
     Route::post('addbankaccount', 'busOwnerController@addAccount');
 //    Route::post('/submitownersignin', function (){
 //        return 'hi';
 //    });
+
+    Route::post('addbankaccount','busOwnerController@addAccount');
+
+
 });
 
 Route::get('ownerhome', 'busOwnerController@getHome'
