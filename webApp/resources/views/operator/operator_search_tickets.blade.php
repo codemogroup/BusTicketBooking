@@ -9,7 +9,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col s3" id ="leftSide">
+
+        <div class="col s4" id ="leftSide">
+            {{--empty column--}}
+        </div>
+
+        <div class="col s3" id ="middle" style="padding-top: 100px">
             <form class="col s12" method="post" action="submit_nic">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row" style="padding:30px ">
