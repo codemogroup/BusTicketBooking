@@ -48,9 +48,7 @@ class busOwnerController extends Controller
         $email = $request['email'];
         $passwordarray= DB::select("select password from owner where email=:e",['e'=>$email]);
         $password=$passwordarray[0]->password;
-
-
-//        return $passwordarray;
+        
         if ($password == $request['password']) {
             return $this->getHome($email);
         } else {
