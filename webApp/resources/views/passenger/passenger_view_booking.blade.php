@@ -3,7 +3,7 @@
 {{-- content--}}
 
 
-@section('tab2')
+@section('tab3')
     class="active"
 @endsection
 

@@ -23,7 +23,7 @@ class passenger_controller extends Controller{
         $current_date = strtotime(date('d-m-Y '));
 
         if($date<$current_date){
-            return redirect('/passenger_search');
+            return redirect('/passenger_home');
         }
 
 
@@ -45,6 +45,12 @@ class passenger_controller extends Controller{
             'your_nic'=>'required'
         ]);
 
+
+    }
+    public function passenger_signup(Request $request){
+        $this->validate($request,[
+
+        ]);
 
     }
 

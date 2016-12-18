@@ -87,6 +87,12 @@ Route::get('/passenger_seat_book',function (){
 Route::get('/passenger_pay',function (){
     return view('passenger.passenger_pay');
 });
+Route::get('/passenger_signin', function () {
+    return view('authentication.passenger_signin');
+});
+Route::get('/passenger_signup', function () {
+    return view('authentication.passenger_signup');
+});
 
 
 
@@ -95,6 +101,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/passenger_search', 'passenger_controller@passenger_search');
     Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
     
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
