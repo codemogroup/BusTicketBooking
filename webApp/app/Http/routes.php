@@ -78,9 +78,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('submit_nic', 'operatorController@getTicket');
 
     Route::post('addbankaccount','busOwnerController@addAccount');
-//    Route::post('/submitownersignin', function (){
-//        return 'hi';
-//    });
+
 });
 
 
