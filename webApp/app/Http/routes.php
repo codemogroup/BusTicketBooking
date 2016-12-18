@@ -72,8 +72,40 @@ Route::get('/passenger_cancel_booking',function (){
 Route::get('/passenger_view_booking',function (){
     return view('passenger.passenger_view_booking');
 });
+Route::get('/passenger_view_results',function (){
+    return view('passenger.passenger_view_results');
+});
+Route::get('/passenger_cancel_results',function (){
+    return view('passenger.passenger_cancel_results');
+});
+Route::get('/passenger_search_results',function (){
+    return view('passenger.passenger_search_results');
+});
+Route::get('/passenger_seat_book',function (){
+    return view('passenger.passenger_seat_book');
+});
+Route::get('/passenger_pay',function (){
+    return view('passenger.passenger_pay');
+});
+
 
 
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
+    Route::post('/passenger_search', 'passenger_controller@passenger_search');
+    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
+    Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    Route::get('/passenger_search',function (){
+        return view('passenger.passenger_search');
+    });
+    Route::get('/passenger_new_booking',function (){
+        return view('passenger.passenger_new_booking');
+    });
+    Route::get('/passenger_cancel_booking',function (){
+        return view('passenger.passenger_cancel_booking');
+    });
+    Route::get('/passenger_view_booking',function (){
+        return view('passenger.passenger_view_booking');
+    });
+
 });

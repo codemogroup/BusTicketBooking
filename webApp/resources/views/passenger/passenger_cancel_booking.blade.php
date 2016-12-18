@@ -9,7 +9,8 @@
 
 @section('content')
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" method="post" action="/passenger_cancel">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row">
                 <div class="input-field col s4">
                     <i class="material-icons prefix">supervisor_account</i>
@@ -23,6 +24,13 @@
                 </button>
             </div>
         </form>
+        @if(count($errors))
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 @endsection
 

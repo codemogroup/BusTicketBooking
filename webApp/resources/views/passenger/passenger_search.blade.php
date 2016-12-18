@@ -9,7 +9,8 @@
 
 @section('content')
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" method="post" action="/passenger_search">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
@@ -18,7 +19,7 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_off</i>
-                    <input name="destination" type="tel" class="validate" >
+                    <input name="destination" type="text" class="validate" >
                     <label for="destination">Destination</label>
                 </div>
             </div>
@@ -31,7 +32,7 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">directions_bus</i>
-                        <select>
+                        <select name="bus_type">
                             <option value="" disabled selected>Choose your Bus Type</option>
                             <option value="highway">HighWay</option>
                             <option value="ac">Air Conditioned</option>
@@ -50,6 +51,13 @@
                 </button>
             </div>
         </form>
+        @if(count($errors))
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 
 
