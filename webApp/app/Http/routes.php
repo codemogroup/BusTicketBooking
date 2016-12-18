@@ -102,6 +102,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
     Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
+    Route::post('/passenger_signin', 'passenger_controller@passenger_signin');
     
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
@@ -114,6 +115,12 @@ Route::group(['middleware' => ['web']], function () {
     });
     Route::get('/passenger_view_booking',function (){
         return view('passenger.passenger_view_booking');
+    });
+    Route::get('/passenger_signin', function () {
+        return view('authentication.passenger_signin');
+    });
+    Route::get('/passenger_signup', function () {
+        return view('authentication.passenger_signup');
     });
 
 });

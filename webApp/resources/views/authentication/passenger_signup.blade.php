@@ -6,8 +6,9 @@
 @section('content')
 
     <div id="signup-page" class="row">
-        <div class="col s12 z-depth-6 card-panel" style="padding: 3%">
-            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%">
+        <div class="col s12 z-depth-6 card-panel" style="padding: 3%"  >
+            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="passenger_signup">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
 
                 </div>
