@@ -23,24 +23,14 @@ class busOwnerController extends Controller
             $request['password'],
         ]);
 
-        return  $this->getHome($request['email']);
+        $email=$request['email'];
+        session()->put(['user'=>$email]);
+//        return  $this->getHome($request['email']);
+        return redirect('ownerhome')->with(['email'=>$email]);
     }
 
 
 
-    public function getHome($email){
-        $bankdetails=$this->getAccountDetails($email);
-        if($bankdetails==null){
-            $message='You have not entered a bank account please enter your account here';
-            $true=FALSE;
-        }else{
-            $message='Your account number is: '.$bankdetails[0]->account_num;
-            $message2='Your current balance is '.$bankdetails[0]->total;
-            $true=TRUE;
-        }
-
-        return  view('bus_owner.ownerhome')->with('email',$email)->with('message',$message)->with('message2',$message2)->with('true',$true);
-    }
 
 
     public function signIn(Request $request)
@@ -52,16 +42,44 @@ class busOwnerController extends Controller
 
 //        return $passwordarray;
         if ($password == $request['password']) {
-            return $this->getHome($email);
+
+            session()->put(['user'=>$email]);
+
+//            return redirect('ownerhome')->with(['email'=>$email]);
+            return redirect('ownerhome');
         } else {
             return redirect()->back();
         }
 
     }
 
-    public function home($email){
-        return view('bus_owner.ownerhome')->with('email',$email);
+    public function signOut(){
+        session()->remove('user');
+        return redirect('/');
     }
+
+    public function getHome(Request $request){
+        $email=session()->get('user');
+        $bankdetails=$this->getAccountDetails($email);
+
+        if($bankdetails==null){
+            $message='You have not entered a bank account please enter your account here';
+            $message2='';
+            $true=FALSE;
+            $namearray=DB::select('select name from owner where email=?',[$email]);
+            $name=$namearray[0]->name;
+        }else{
+            $message='Your account number is: '.$bankdetails[0]->account_num;
+            $message2='Your current balance is '.$bankdetails[0]->total;
+            $true=TRUE;
+            $name=$bankdetails[0]->name;
+        }
+
+        return  view('bus_owner.ownerhome')->with('email',$email)->with('name',$name)->with('message',$message)->with('message2',$message2)->with('true',$true);
+    }
+//    public function home($email){   
+//        return view('bus_owner.ownerhome')->with('email',$email);
+//    }
     
     public function addAccount(Request $request){
         $email=$request['email'];
@@ -79,7 +97,7 @@ class busOwnerController extends Controller
 
     public function getAccountDetails($email){
 
-        $accontdetails=DB::select('select owner.account_num,total from bank_account,owner where owner.account_num=bank_account.account_num and email=?',[$email]);
+        $accontdetails=DB::select('select owner.name,owner.account_num,total from bank_account,owner where owner.account_num=bank_account.account_num and email=?',[$email]);
         return $accontdetails;
     }
 

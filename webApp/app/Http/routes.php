@@ -37,19 +37,12 @@ Route::get('operator', function () {
 });
 
 
-
-
-
 //////////////////////// operator routing ends
-
-
 
 
 Route::get('/forgotpassword', function () {
     return view('authentication.forgotpassword');
 });
-
-
 
 
 Route::get('operator', function () {
@@ -58,9 +51,9 @@ Route::get('operator', function () {
 });
 
 
-Route::get('ownerhome',function($email) {
-    return view('bus_owner.ownerhome')->with('email',$email);
-});
+//Route::get('ownerhome',function($email) {
+//    return view('bus_owner.ownerhome')->with('email',$email);
+//});
 
 
 Route::get('ownersignup', function () {
@@ -71,19 +64,23 @@ Route::get('ownersignin', function () {
     return view('bus_owner.signin');
 });
 
+Route::get('signout','busOwnerController@signout');
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitownersignup', 'busOwnerController@createOwner');
-    Route::post('/submitownersignin', 'busOwnerController@signIn');
+    Route::post('/submitownersignin','busOwnerController@signIn');
     Route::post('submit_nic', 'operatorController@getTicket');
 
-    Route::post('addbankaccount','busOwnerController@addAccount');
+    Route::post('addbankaccount', 'busOwnerController@addAccount');
 //    Route::post('/submitownersignin', function (){
 //        return 'hi';
 //    });
 });
 
+Route::get('ownerhome', 'busOwnerController@getHome'
 
+)->middleware('authentication');
 
 Route::get('testing2', function () {
     return view('testing2');
@@ -92,8 +89,6 @@ Route::get('testing2', function () {
 //Route::get('/ownerhome', function () {
 //    return view('bus_owner.ownerhome');
 //});
-
-
 
 
 //Route::post('addbankaccount','busOwnerController@addAccount');
