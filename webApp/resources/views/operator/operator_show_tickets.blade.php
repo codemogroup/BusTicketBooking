@@ -126,7 +126,7 @@
             <td> {{ $results->date }}</td>
             <td>{{$results->nic}}</td>
             <td>{{ $results->name}}</td>
-            <td> {{ $results->plateNo }}</td>
+            <td> {{ $results->number_plate }}</td>
             <td> {{ $results->time }}</td>
             <td> {{ $results->station1 }}</td>
             <td> {{ $results->station2 }}</td>
@@ -147,7 +147,6 @@
                 </button>
             </td>
         </tr>
-
 
 
         @endforeach
