@@ -138,6 +138,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/passenger_search', 'passenger_controller@passenger_search');
     Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    
     Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
     Route::post('/passenger_signin', 'passenger_controller@passenger_signin');
 
