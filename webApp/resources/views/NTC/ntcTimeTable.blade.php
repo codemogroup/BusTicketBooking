@@ -1,4 +1,4 @@
-@extends('layout.ntcmaster')
+@extends('layout.NTC.ntcmaster')
 
 @section('title')
     NIC Time Table

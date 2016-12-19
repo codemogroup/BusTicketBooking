@@ -7,11 +7,11 @@
     <li><a href="addnewbus">Add New</a></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">See All</a></li>
+    <li><a href="{{action('ntcController@allRoutes')}}">See All</a></li>
     <li class="divider"></li>
     <li><a href="addnewroute">Add New</a></li>
     <li class="divider"></li>
-    <li><a href="#!">Change</a></li>
+    <li><a href="changeroute">Change</a></li>
 </ul>
 <ul id="dropdown3" class="dropdown-content">
     <li><a href="#!">See All</a></li>
