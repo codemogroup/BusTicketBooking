@@ -10,8 +10,18 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('test', function () {
+    return view('testview');
+});
+
+Route::get('test/{{va}}', function () {
+    return view('testview');
+});
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('operator_new_booking', function () {
     return view('operator_new_booking');
@@ -84,6 +94,10 @@ Route::get('/passenger_search',function (){
 
 Route::get('ownersignup', function () {
     return view('bus_owner.signup');
+
+});
+Route::get('ownersignin', function () {
+    return view('bus_owner.signin');
 
 });
 

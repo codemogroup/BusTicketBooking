@@ -143,6 +143,7 @@ CREATE TABLE booking
     booking_id      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     date            DATETIME    NOT NULL,
     seats           INT NOT NULL,
+    no_of_seats     VARCHAR(50) NOT NULL,
     bus_id          INT NOT NULL,
     journey_id      INT NOT NULL ,
     fare_id         INT NOT NULL ,

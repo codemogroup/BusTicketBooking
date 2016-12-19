@@ -4,17 +4,17 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row input-field">
-            <div class=" col s4">
+            <div class="input-field col s4">
                 <input id="bus_id" type="text" name="bus_id">
                 <label for="bus_id">Number plate</label>
             </div>
             <div class="input-field col s4">
                 <select name="type">
                     <option value="" disabled selected>Choose Bus type</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="normal">Normal</option>
+                    <option value="semiluxery">Semi Luxery</option>
+                    <option value="luxery">Luxery</option>
+                    <option value="highway">Highway</option>
                 </select>
             </div>
         </div>
@@ -29,6 +29,20 @@
                 <label for="seatsfor_booking">Number of seats for booking</label>
             </div>
 
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="from" type="text" name="from">
+                <label for="from">from</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="bus_id" type="text" name="bus_id">
+                <label for="bus_id">Number plate</label>
+            </div>
+        </div>
+        <div class="input-field col s4">
+            <input id="bus_id" type="text" name="bus_id">
+            <label for="bus_id">Number plate</label>
         </div>
 
 
