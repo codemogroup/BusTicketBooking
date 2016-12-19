@@ -6,9 +6,10 @@
 
             {{--right top corner links--}}
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Profile</a></li>
-                <li><a href="">Settings</a></li>
-                <li><a href="">Sign out</a></li>
+                <li><a href="">  {{$name}} <h3 class="material-icons left">person_pin</h3></a></li>
+                <li><a href="">Settings <h3 class="material-icons left">settings_applications</h3></a></li>
+                <li><a href="signout">Sign out <h3 class="material-icons left">power_settings_new</h3></a></li>
+
             </ul>
 
             {{----}}

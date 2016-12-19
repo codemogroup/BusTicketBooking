@@ -26,7 +26,7 @@
             </div>
             <div class="input-field  col s4">
                 <input id="seatsfor_booking" type="number" min=0 name="seatsfor_booking">
-                <label for="seatsfor_booking">Number of seats</label>
+                <label for="seatsfor_booking">Number of seats for booking</label>
             </div>
 
         </div>

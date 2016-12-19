@@ -36,7 +36,7 @@ CREATE TABLE intermediate
 
 CREATE TABLE owner
 (
-    owner_id    INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    owner_id    VARCHAR(11) PRIMARY KEY NOT NULL,
     name        VARCHAR(150) NOT NULL,
     nic         VARCHAR(11) NOT NULL,
     telephone   VARCHAR(11) NOT NULL,
@@ -77,8 +77,8 @@ CREATE TABLE customer
     name        VARCHAR(150) NOT NULL,
     nic         VARCHAR(11) NOT NULL,
     telephone   VARCHAR(11) NOT NULL,
-    address     VARCHAR(250) NOT NULL,
-    email       VARCHAR(100)
+    address     VARCHAR(250) NOT NULL
+
 );
 
 CREATE TABLE bus
@@ -88,7 +88,7 @@ CREATE TABLE bus
     type                VARCHAR(50) NOT NULL,
     no_of_seats         INT NOT NULL,
     seats_for_booking   INT,
-    owner_id            INT NOT NULL,
+    owner_id            VARCHAR(11) NOT NULL,
     route_id            INT NOT NULL,
     FOREIGN KEY (owner_id) REFERENCES owner(owner_id) ON UPDATE CASCADE,
     FOREIGN KEY (route_id) REFERENCES route(route_id) ON UPDATE CASCADE
@@ -100,7 +100,7 @@ CREATE TABLE bus_requeats
     type                VARCHAR(50) NOT NULL,
     no_of_seats         INT NOT NULL,
     seats_for_booking   INT,
-    owner_id            INT NOT NULL,
+    owner_id            VARCHAR(11) NOT NULL,
     route_id            INT NOT NULL,
     FOREIGN KEY (owner_id) REFERENCES owner(owner_id) ON UPDATE CASCADE,
     FOREIGN KEY (route_id) REFERENCES route(route_id) ON UPDATE CASCADE

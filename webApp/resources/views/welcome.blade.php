@@ -32,11 +32,11 @@
                 <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Operator</a>
             </div>
         </div>
-        <div class="carousel-item red white-text" href="#one!">
+        <div class="carousel-item blue white-text" href="#one!">
             <h2>First Panel</h2>
             <p class="white-text">This is your first panel</p>
         </div>
-        <div class="carousel-item amber white-text" href="#two!">
+        <div class="carousel-item black white-text" href="#two!">
             <h2>Second Panel</h2>
             <p class="white-text">This is your second panel</p>
         </div>
@@ -44,7 +44,7 @@
             <h2>Third Panel</h2>
             <p class="white-text">This is your third panel</p>
         </div>
-        <div class="carousel-item blue white-text" href="#four!">
+        <div class="carousel-item white white-text" href="#four!">
             <h2>Fourth Panel</h2>
             <p class="white-text">This is your fourth panel</p>
         </div>
