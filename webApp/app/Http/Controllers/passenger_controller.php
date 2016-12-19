@@ -45,6 +45,15 @@ class passenger_controller extends Controller{
         $this->validate($request,[
             'your_nic'=>'required'
         ]);
+        $nic=$request['your_nic'];
+        $result=DB::select('select customer_id from customer where nic=?',[$nic]);
+        if(empty($result)){
+            return redirect('/passenger_signup');
+            
+        }else{
+            $customer_id=$result[0]->customer_id;
+            
+        }
 
 
     }
