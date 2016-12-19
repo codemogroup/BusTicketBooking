@@ -183,3 +183,43 @@ Route::get('ownerhome', 'busOwnerController@getHome')->middleware('authenticatio
 
 
 
+
+////////////////////////NTC routing starts
+
+
+Route::get('ntc', function () {
+    return view('NTC.ntc');
+});
+
+Route::get('ntctime', function () {
+    return view('NTC.ntcTimeTable');
+});
+
+Route::get('addnewbus', function () {
+    return view('NTC.addNewBus');
+});
+
+Route::get('addnewroute', function () {
+    return view('NTC.addNewRoute');
+});
+
+Route::get('changeroute', function () {
+    return view('NTC.routeChange');
+});
+
+Route::post('/search', 'ntcController@executeSearch');
+
+//Route::post("doAjax/{x}","ntcController@doAjax");
+
+Route::get('allroutes', 'ntcController@allRoutes');
+Route::get('changeindex', 'ntcController@index');
+Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/submitaddroute', 'ntcController@addRoute');
+    Route::post('/executesearch', array('uses'=>'ntcController@executeSearch'));
+
+});
+////////////////////////NTC routing ends
+
