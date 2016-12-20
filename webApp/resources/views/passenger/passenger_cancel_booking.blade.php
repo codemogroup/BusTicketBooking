@@ -19,6 +19,13 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">card_membership</i>
+                    <input name="booking_id" type="text" class="validate" >
+                    <label for="booking_id">Booking Id</label>
+                </div>
+            </div>
+            <div class="row">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Search
                     <i class="material-icons right">send</i>
                 </button>
