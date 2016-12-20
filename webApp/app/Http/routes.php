@@ -136,12 +136,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
     Route::post('/passenger_search', 'passenger_controller@passenger_search');
-    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
+    Route::post('/passenger_cancel_final', 'passenger_controller@passenger_cancel_final');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
     
     Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
     Route::post('/passenger_signin', 'passenger_controller@passenger_signin');
-
+    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
     });

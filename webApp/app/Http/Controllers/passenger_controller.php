@@ -34,11 +34,34 @@ class passenger_controller extends Controller{
 
 
     }
+
+    public function passenger_cancel_final(Request $request){
+        $booking_id=$request['booking_id'];
+        return $booking_id;
+    }
     public function passenger_cancel(Request $request){
         $this->validate($request,[
-                'your_nic'=>'required'
-        ]);
+                'your_nic'=>'required',
+                'booking_id'=>'required'
 
+        ]);
+        $nic=$request['your_nic'];
+        $booking_id=$request['booking_id'];
+        $result=DB::select('select customer_id from customer where nic=?',[$nic]);
+        if (empty($result)){
+            return redirect('/passenger_signup');
+        }else{
+            $result2=DB::select('select customer_id from booking where booking_id=?',[$booking_id]);
+            if ($result[0]->customer_id==$result2[0]->customer_id){
+                $customer_id=$result[0]->customer_id;
+                $journey_result=DB::select('select distinct(booking_id),date,seats,bus.type,bus_fee.price_normal,bus_fee.price_highway,journey.direction,station,temp.end_station from booking,bus,fare,bus_fee,intermediate,journey,(select distinct(booking_id) as id,station as end_station from booking,fare,intermediate where customer_id=? and  booking.fare_id=fare.fare_id and  fare.intermediate_id_2=intermediate.intermediate_id and(booking.status=0 or booking.status=1)) as temp where customer_id=? and booking.bus_id=bus.bus_id and booking.fare_id=fare.fare_id and bus_fee.price_id=fare.price_id and fare.intermediate_id_1=intermediate.intermediate_id and booking.journey_id=journey.journey_id and booking_id=temp.id and (booking.status=0 or booking.status=1)',[$customer_id,$customer_id]);
+                return view('passenger.passenger_cancel_results',['journey_result'=>$journey_result]);
+
+            }else{
+                return redirect('/passenger_cancel_booking');
+            }
+
+        }
 
     }
     public function passenger_view(Request $request){
@@ -53,34 +76,8 @@ class passenger_controller extends Controller{
         }else{
 
             $customer_id=$result[0]->customer_id;
-            $journey_result=DB::select('select distinct(booking_id),date,seats,bus.type,bus_fee.price_normal,bus_fee.price_highway,journey.direction,station,temp.end_station from booking,bus,fare,bus_fee,intermediate,journey,(select distinct(booking_id) as id,station as end_station from booking,fare,intermediate where customer_id=? and  booking.fare_id=fare.fare_id and  fare.intermediate_id_2=intermediate.intermediate_id) as temp where customer_id=? and booking.bus_id=bus.bus_id and booking.fare_id=fare.fare_id and bus_fee.price_id=fare.price_id and fare.intermediate_id_1=intermediate.intermediate_id and booking.journey_id=journey.journey_id and booking_id=temp.id',[$customer_id,$customer_id]);
-            /*foreach ($journey_result as $row){
-                $seats=$row->seats;
-                $type=$row->type;
-                $normal=$row->price_normal;
-                $highway=$row->price_highway;
-                $direction=$row->direction;
-                $station=$row->station;
-                $end_station=$row->end_station;
-                if ($direction=='1'){
-                    $row['station']=$end_station;
-                    $row['end_station']=$station;
-
-                }
-                if($type=='normal'){
-
-                }elseif ($type=='semiluxury'){
-
-                }elseif ($type=='luxury'){
-
-                }else{
-
-                }
-
-
-
-
-            }*/
+            $journey_result=DB::select('select distinct(booking_id),date,seats,bus.type,bus_fee.price_normal,bus_fee.price_highway,journey.direction,station,temp.end_station from booking,bus,fare,bus_fee,intermediate,journey,(select distinct(booking_id) as id,station as end_station from booking,fare,intermediate where customer_id=? and  booking.fare_id=fare.fare_id and  fare.intermediate_id_2=intermediate.intermediate_id and(booking.status=0 or booking.status=1)) as temp where customer_id=? and booking.bus_id=bus.bus_id and booking.fare_id=fare.fare_id and bus_fee.price_id=fare.price_id and fare.intermediate_id_1=intermediate.intermediate_id and booking.journey_id=journey.journey_id and booking_id=temp.id and (booking.status=0 or booking.status=1)',[$customer_id,$customer_id]);
+            
             return view('passenger.passenger_view_results',['journey_result'=>$journey_result]);
 
         }
