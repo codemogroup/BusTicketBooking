@@ -37,7 +37,8 @@ class passenger_controller extends Controller{
 
     public function passenger_cancel_final(Request $request){
         $booking_id=$request['booking_id'];
-        return $booking_id;
+        DB::update('update booking set booking.status=2 where booking.booking_id=?',[$booking_id]);
+        return redirect('/passenger_cancel_booking');
     }
     public function passenger_cancel(Request $request){
         $this->validate($request,[
