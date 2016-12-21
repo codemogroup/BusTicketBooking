@@ -209,9 +209,9 @@ Route::get('operator_search_tickets', function () {
 Route::get('operator_show_tickets', function () {
     return view('operator.operator_show_tickets');
 });
-Route::get('operator_profile', function () {
-    return view('operator.operator_profile');
-});
+//Route::get('operator_profile', function () {
+//    return view('operator.operator_profile');
+//});
 Route::get('operator_signin', function () {
     return view('operator.operator_signin');
 });
@@ -600,7 +600,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('submit_nic', 'operatorController@getTicket');
     Route::post('submit_issue', 'operatorController@setIssue');
     Route::post('submit_reject', 'operatorController@setReject');
-    Route::post('operator_profile', 'operatorController@getProfile');
+    Route::get('operator_profile', 'operatorController@getProfile');
     Route::post('operator_sign_in', 'operatorController@signIn');
     Route::get('operator_sign_out', 'operatorController@signOut');
 

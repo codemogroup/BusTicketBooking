@@ -37,13 +37,10 @@ class operatorController extends Controller
         DB::update('update booking set ticket_issued = 2 where booking.booking_id =:booking_id', ['booking_id' => $request['booking_id']]);
         return $this->getTicket($request);
     }
-    public function getProfile(Request $request)
+    public function getProfile()
     {
-        $results = DB::select('select operator.operator_id,operator.name,operator.nic ,operator.telephone,operator.address,operator.email,operator.station_id
-                  from operator 
-
-                  where customer.nic =:nic', ['nic' => $request['nic']]);
-        return view('operator.operator_show_tickets', ['results' => $results ]);
+        $results = DB::select('select operator.operator_id,operator.name,operator.nic ,operator.telephone,operator.address,operator.email,operator.station_id from operator where operator_id =:id', ['id' => session()->get('id')]);
+        return view('operator.operator_profile', ['results' => $results ]);
     }
     public function signIn(Request $request)
     {

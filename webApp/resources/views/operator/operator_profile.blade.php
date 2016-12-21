@@ -29,7 +29,7 @@
                 Name
             </div>
             <div class="col s6">
-
+                {{ $results->name}}
             </div>
 
         </div>
