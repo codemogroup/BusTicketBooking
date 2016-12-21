@@ -9,25 +9,6 @@ use DB;
 
 
 class passenger_controller extends Controller{
-    public function passenger_search(Request $request){
-        $this->validate($request,[
-                'base_station' =>'required',
-                'destination' => 'required',
-                'journey_date' => 'required',
-                'bus_type' =>'required'
-            ]
-            );
-        $base_station=strtolower($request['base_station']);
-        $destination=strtolower($request['destination']);
-        $date=strtotime($request['journey_date']);
-        $bus_type=$request['bus_type'];
-        $current_date = strtotime(date('d-m-Y '));
-
-        if($date<$current_date){
-            return redirect('/passenger_home');
-        }
-    }
-
     public function passenger_cancel_final(Request $request){
         $booking_id=$request['booking_id'];
         DB::update('update booking set booking.status=2 where booking.booking_id=?',[$booking_id]);
