@@ -15,16 +15,9 @@
 
 @section('content')
 
-    {{--{{$date}}--}}
-    {{--{{$journey_id}}--}}
-    {{--{{$bus_id}}--}}
-    {{--{{$bus_no}}--}}
-    {{--{{$from}}--}}
-    {{--{{$to}}--}}
-    {{--{{$direction}}--}}
-    {{--{{$type}}--}}
     <div class="container" style="margin-top: 5%">
-        <form action="">
+        <form action="submitbooking" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row ">
                 <div class="col s4 input-field">
                     <input type="text" id="date" readonly name="date" value="{{$date}}">
@@ -61,27 +54,31 @@
                 <input type="hidden" name="direction" value="{{$direction}}">
             </div>
             <div class="row ">
+                <div class="input-field col s4">
+                    <select required name="numOfSeats" class="validate" >
+                        <option value="" disabled selected>Number of seats</option>
+                        @for($i = 1; $i <= $available; $i++)
+                            <option value="{{$i}}">{{$i}}</option>
+                        @endfor
+                    </select>
+                </div>
                 <div class="col s4 input-field">
-                    <select class="validate" required name="passenger_id" id="passenger_id"></select>
+                    <input type="text" class="validate" required name="passenger_id" id="passenger_id">
                     <label for="passenger_id">Please enter Your Id</label>
                 </div>
 
-                <div class="col s4 input-field">
-                    <input class="validate" required type="text" id="seat"  name="bus_id" ">
-                    <label for="bus_id">Bus Number</label>
-                </div>
+                <div class="col s4" >
+                    <button class="btn waves-effect waves-light col s12 z-depth-5"
+                            style="background-color:  #2e6da4;margin-bottom: 0;height: 60px"
+                            type="submit"> Create booking
 
-                <div class="col s4 input-field">
-                    <input class="validate" required type="text" id="type"  name="type">
-                    <label for="type">Type</label>
+
+                    </button>
                 </div>
             </div>
 
+
         </form>
     </div>
-    <div style="float: right">
-        <div class="row">
-            <div style="width: 50px;background-color: #337ab7;border: 5px solid #c7254e;text-align:center">1</div>
-        </div>
-    </div>
+
 @endsection

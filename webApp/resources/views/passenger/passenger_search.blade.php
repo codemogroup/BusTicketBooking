@@ -12,6 +12,7 @@
 @section('content')
 
     <div class="container" style="margin-top: 9%">
+
         <form class="col s12" method="post" action="passengerSearch">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row">

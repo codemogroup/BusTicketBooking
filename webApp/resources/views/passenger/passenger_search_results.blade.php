@@ -10,7 +10,7 @@
             <thead>
             <tr>
                 <div>
-                    <th style="color: #204d74" class="col s1" data-field="no">Number <i
+                    <th style="color: #204d74" class="col s1" data-field="no"># <i
                                 class="material-icons prefix"></i></th>
                     <th style="color: #204d74" class="col s2" data-field="licence_no">Bus No <i
                                 class="material-icons prefix">featured_play_list</i>
@@ -41,8 +41,9 @@
                 <tr>
                     <td>{{$index}}</td>
                     <td>{{$bus['bus_no']}}</td>
-                    <td>{{$bus['bus_type']}}</td>
                     <td>{{$bus['time']}}</td>
+                    <td>{{$bus['bus_type']}}</td>
+
                     <td>{{$bus['available']}}</td>
                     <td>
                         <form action="addBooking" method="post">
@@ -57,6 +58,7 @@
                             <input type="hidden" name="type" value="{{$bus['bus_type']}}">
                             <input type="hidden" name="bus_no" value="{{$bus['bus_no']}}">
                             <input type="hidden" name="time" value="{{$bus['time']}}">
+                            <input type="hidden" name="available" value="{{$bus['available']}}">
 
 
                             <button type="submit" class="btn" style="background-color:  #2e6da4">book <i class="material-icons prefix">add_shopping_cart</i></button>

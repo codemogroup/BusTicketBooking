@@ -1,21 +1,109 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-// test under
+//
 
 
 
-//test above
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('test', function (){
     return view('testview');
@@ -197,7 +285,7 @@ Route::get('ownerhome', 'busOwnerController@getBankDetails')->middleware('authen
 
 Route::post('addbusrequest', 'busOwnerController@addBusRequest');
 
-
+Route::post('confirmbooking', 'passenger_controller@confirmBooking');
 
 ////////////////////////NTC routing starts
 
@@ -243,3 +331,4 @@ Route::get('editbus', function () {
     return view('bus_owner.editbus');
 });
 
+Route::post('submitbooking','passenger_controller@submitBooking');
