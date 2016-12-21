@@ -67,7 +67,7 @@ Route::get('/ownerreg', function () {
 //});
 
 Route::get('/ownerhome',function (){
-    return view('bus_owner.ownerhome');
+   return view('bus_owner.ownerhome'); 
 })->name('ownerhome');
 
 
@@ -136,11 +136,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
     Route::post('/passenger_search', 'passenger_controller@passenger_search');
-    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
+    Route::post('/passenger_cancel_final', 'passenger_controller@passenger_cancel_final');
     Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    
     Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
     Route::post('/passenger_signin', 'passenger_controller@passenger_signin');
-
+    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
     });
@@ -163,49 +164,9 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
-Route::get('ownerhome', 'busOwnerController@getHome')->middleware('authentication');
+    Route::get('ownerhome', 'busOwnerController@getHome')->middleware('authentication');
 
 
 
 
-
-
-////////////////////////NTC routing starts
-
-
-Route::get('ntc', function () {
-    return view('NTC.ntc');
-});
-
-Route::get('ntctime', function () {
-    return view('NTC.ntcTimeTable');
-});
-
-Route::get('addnewbus', function () {
-    return view('NTC.addNewBus');
-});
-
-Route::get('addnewroute', function () {
-    return view('NTC.addNewRoute');
-});
-
-Route::get('changeroute', function () {
-    return view('NTC.routeChange');
-});
-
-Route::post('/search', 'ntcController@executeSearch');
-
-//Route::post("doAjax/{x}","ntcController@doAjax");
-
-Route::get('allroutes', 'ntcController@allRoutes');
-Route::get('changeindex', 'ntcController@index');
-Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
-
-
-Route::group(['middleware' => ['web']], function () {
-    Route::post('/submitaddroute', 'ntcController@addRoute');
-    Route::post('/executesearch', array('uses'=>'ntcController@executeSearch'));
-
-});
-////////////////////////NTC routing ends
 

@@ -47,7 +47,7 @@
 
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <button class="btn waves-effect waves-light" type="submit" name="action" href="/passenger_home">Search
                     <i class="material-icons right">send</i>
                 </button>
             </div>

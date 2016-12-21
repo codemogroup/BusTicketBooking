@@ -34,17 +34,55 @@ class passenger_controller extends Controller{
 
 
     }
+
+    public function passenger_cancel_final(Request $request){
+        $booking_id=$request['booking_id'];
+        DB::update('update booking set booking.status=2 where booking.booking_id=?',[$booking_id]);
+        return redirect('/passenger_cancel_booking');
+    }
     public function passenger_cancel(Request $request){
         $this->validate($request,[
-                'your_nic'=>'required'
-        ]);
+                'your_nic'=>'required',
+                'booking_id'=>'required'
 
+        ]);
+        $nic=$request['your_nic'];
+        $booking_id=$request['booking_id'];
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+        if (empty($result)){
+            return redirect('/passenger_signup');
+        }else{
+            $result2=DB::select('CALL get_customer_id(?)',[$booking_id]);
+            if ($result[0]->customer_id==$result2[0]->customer_id){
+                $customer_id=$result[0]->customer_id;
+                $journey_result=DB::select('CAll booking_result(?)',[$customer_id]);
+                return view('passenger.passenger_cancel_results',['journey_result'=>$journey_result]);
+
+            }else{
+                return redirect('/passenger_cancel_booking');
+            }
+
+        }
 
     }
     public function passenger_view(Request $request){
         $this->validate($request,[
             'your_nic'=>'required'
         ]);
+        $nic=$request['your_nic'];
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+        if(empty($result)){
+            return redirect('/passenger_signup');
+
+        }else{
+
+            $customer_id=$result[0]->customer_id;
+            $journey_result=DB::select('CAll booking_result(?)',[$customer_id]);
+            
+            return view('passenger.passenger_view_results',['journey_result'=>$journey_result]);
+
+        }
+
 
 
     }
@@ -61,7 +99,7 @@ class passenger_controller extends Controller{
         $nic=$request['nic'];
         $address=$request['address'];
         $telephone=$request['telephone'];
-        $result=DB::select('select customer_id from customer where nic=?',[$nic]);
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
 
 
         if(empty($result)){
@@ -86,7 +124,7 @@ class passenger_controller extends Controller{
         ]);
         $nic=$request['nic'];
 
-        $result=DB::select('select customer_id from customer where nic=?',[$nic]);
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
         
 
         if(empty($result)){
