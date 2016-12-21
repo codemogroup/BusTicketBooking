@@ -1,6 +1,8 @@
 @extends('layout.operator_master')
 
-{{-- content--}}
+@section('name')
+    <p class="grey-text text-lighten-4">{{ $results->name }}</p>
+@endsection
 
 @section('tab5')
     class="active "
