@@ -156,9 +156,9 @@
                 @endif
             </td>
             <td>
-                @if ( $results->ticket_issued=='1')
+                @if ( $results->status=='1')
                     Issued
-                @elseif ( $results->ticket_issued=='0')
+                @elseif ( $results->status=='0')
                     Not Issued
                 @else
                     Rejected
