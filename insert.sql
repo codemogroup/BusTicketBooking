@@ -44,23 +44,23 @@ INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `rout
 INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `route_id`) VALUES ('normal','55','20','ow3','3');
 INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `route_id`) VALUES ('luxury','60','15','ow4','4');
 
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','9:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','12:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','15:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','18:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','21:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','10:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','13:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','16:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','19:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','22:30',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','09:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','12:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','15:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','18:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','21:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','10:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','13:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','16:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','19:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','22:30:00',"sunday",'1','1');
 
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('colombo','1');
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('kadawatha','1');
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('kiribathgoda','1');
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('nugegoda','1');
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('miriswatta','1');
-INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('gampaha','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.01,'colombo','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.02,'kadawatha','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.03,'kiribathgoda','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.04,'nugegoda','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.05,'miriswatta','1');
+INSERT INTO `intermediate`( `intermediate_id`,`station`, `route_id`) VALUES (1.06,'gampaha','1');
 
 INSERT INTO `bus_fee`( `price_normal`, `price_highway`) VALUES ('10','15');
 INSERT INTO `bus_fee`( `price_normal`, `price_highway`) VALUES ('12','20');
@@ -69,16 +69,16 @@ INSERT INTO `bus_fee`( `price_normal`, `price_highway`) VALUES ('18','33');
 INSERT INTO `bus_fee`( `price_normal`, `price_highway`) VALUES ('21','36');
 INSERT INTO `bus_fee`( `price_normal`, `price_highway`) VALUES ('25','40');
 
-INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1','2','1');
-INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1','3','2');
-INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1','4','3');
-INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1','5','4');
-INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1','6','5');
+INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1.01','1.02','1');
+INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1.01','1.03','2');
+INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1.01','1.04','3');
+INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1.01','1.05','4');
+INSERT INTO `fare`( `route_id`, `intermediate_id_1`, `intermediate_id_2`, `price_id`) VALUES ('1','1.01','1.06','5');
 
-INSERT INTO `booking`(`date`, `seats`, `bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20','4,5,6','1','1','3','1');
-INSERT INTO `booking`( `date`, `seats`, `bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20','7,8,9','1','1','4','2');
-INSERT INTO `booking`( `date`, `seats`, `bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20','10,11,12','1','1','5','3');
-INSERT INTO `booking`(`date`, `seats`, `bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20','13,14','1','1','5','4');
+INSERT INTO `booking`(`date`, `seats`, `no_of_seats`,`bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20',3,'4,5,6','1','1','3','1');
+INSERT INTO `booking`( `date`, `seats`,`no_of_seats`,`bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20',3,'7,8,9','1','1','4','2');
+INSERT INTO `booking`( `date`, `seats`,`no_of_seats`, `bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20',3,'10,11,12','1','1','5','3');
+INSERT INTO `booking`(`date`, `seats`, `no_of_seats`,`bus_id`, `journey_id`, `fare_id`, `customer_id`) VALUES ('2016/12/20',2,'13,14','1','1','5','4');
 
 INSERT INTO `transaction`( `booking_id`, `amount`, `transfered`) VALUES ('1','45','1');
 INSERT INTO `transaction`( `booking_id`, `amount`, `transfered`) VALUES ('2','54','0');

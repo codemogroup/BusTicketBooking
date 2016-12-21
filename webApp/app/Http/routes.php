@@ -28,23 +28,23 @@ Route::get('operator_show_tickets', function () {
 Route::get('operator_verify_journey', function () {
     return view('operator.operator_verify_journey');
 });
-
-
-
+Route::get('operator_profile', function () {
+    return view('operator.operator_profile');
+});
 //
 
 Route::get('/signin', function () {
     return view('authentication.signin');
 });
-//returnRoute::get('operator', function () {
-//     return view('operator');
-//});
+Route::get('operator_signin', function () {
+    return view('operator.operator_signin');
+});
 Route::get('/signup', function () {
     return view('authentication.signup');
 });
 
 Route::get('operator', function () {
-    return view('operator.operator');
+    return view('operator.operator')->middleware('operator_authentication');
 });
 
 
@@ -132,10 +132,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('submit_issue', 'operatorController@setIssue');
     Route::post('submit_reject', 'operatorController@setReject');
     Route::post('addbankaccount', 'busOwnerController@addAccount');
-
-
+    Route::post('operator_profile', 'operatorController@getProfile');
+    Route::post('operator_sign_in', 'operatorController@signIn');
     Route::post('addbankaccount','busOwnerController@addAccount');
-
+    Route::get('operator_sign_out', 'operatorController@signOut');
 
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
     Route::post('/passenger_search', 'passenger_controller@passenger_search');

@@ -45,7 +45,32 @@ class operatorController extends Controller
         DB::update('update booking set ticket_issued = 2 where booking.booking_id =:booking_id', ['booking_id' => $request['booking_id']]);
         return $this->getTicket($request);
     }
-  
+    public function getProfile(Request $request)
+    {
+        $results = DB::select('select operator.operator_id,operator.name,operator.nic ,operator.telephone,operator.address,operator.email,operator.station_id
+                  from operator 
+
+                  where customer.nic =:nic', ['nic' => $request['nic']]);
+        return view('operator.operator_show_tickets', ['results' => $results ]);
+    }
+    public function signIn(Request $request)
+    {
+        $id=$request['id'];
+        $results = DB::select('select operator.name , operator.operator_id from operator where operator_id=:id and password=:password', ['id' => $request['id'],'password' => $request['password']] );
+       if (empty($results)){
+            return view('operator.operator_signin');
+        }else {
+            session()->put(['id' => $id]);
+            return view('operator.operator', ['results' => $results[0]]);
+        }
+
+    }
+    public function signOut()
+    {
+        session()->remove('id');
+        return view('operator.operator_signin');
+
+    }
 }
 //join journey on booking.journey_id=journey.journey_id
 //join route on journey.journey_id= route.route_id
