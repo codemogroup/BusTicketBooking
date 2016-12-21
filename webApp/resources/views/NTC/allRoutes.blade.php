@@ -11,9 +11,9 @@
         <tr style="background-color: rgba(71, 58, 83, 0.29)">
             <th data-field="routeNO">Route No</th>
             <th data-field="station1">Base Station</th>
-            <th data-field="station2">Destination Station</th>
+            <th data-field="station2">End Station</th>
 
-vchvbhc        </thead>
+        </thead>
 
         <tbody>
 

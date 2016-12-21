@@ -9,16 +9,23 @@
 <ul id="dropdown2" class="dropdown-content">
     <li><a href="{{action('ntcController@allRoutes')}}">See All</a></li>
     <li class="divider"></li>
-    <li><a href="addnewroute">Add New</a></li>
+    <li><a href="{{action('ntcController@addNewRoute')}}">Add New</a></li>
     <li class="divider"></li>
     <li><a href="changeroute">Change</a></li>
 </ul>
 <ul id="dropdown3" class="dropdown-content">
-    <li><a href="#!">See All</a></li>
+    <li><a href="{{action('ntcController@allOperators')}}">See All</a></li>
     <li class="divider"></li>
-    <li><a href="#!">Add New</a></li>
+    <li><a href="{{action('ntcController@addNewOperator')}}">Add New</a></li>
     <li class="divider"></li>
-    <li><a href="#!">Change</a></li>
+    <li><a href="/changeoperator">Change</a></li>
+</ul>
+
+<ul id="dropdown4" class="dropdown-content">
+    <li><a href="{{action('ntcController@allStations')}}">See All</a></li>
+    <li class="divider"></li>
+    <li><a href="addnewstation">Add New</a></li>
+
 </ul>
 
 <nav>
@@ -31,6 +38,7 @@
             <li><a class="dropdown-button" data-hover="true"  data-beloworigin="true" href="#!" data-activates="dropdown2">Routes<i class="material-icons right">arrow_drop_down</i></a></li>
 
             <li><a class="dropdown-button" data-hover="true"  data-beloworigin="true" href="#!" data-activates="dropdown3">Operators<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" data-hover="true"  data-beloworigin="true" href="#!" data-activates="dropdown4">Stations<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
     </div>
 </nav>

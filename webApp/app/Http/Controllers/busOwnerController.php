@@ -34,9 +34,10 @@ class busOwnerController extends Controller
     public function signIn(Request $request)
     {
         $email = $request['email'];
-        $passwordarray = DB::select("select password from owner where email=:e", ['e' => $email]);
-        $password = $passwordarray[0]->password;
-
+        $passwordarray= DB::select("CALL bus_owner_get_password(?)",[$email]);
+                   
+        $password=$passwordarray[0]->password;
+        
         if ($password == $request['password']) {
 
             session()->put(['user' => $email]);
@@ -60,17 +61,17 @@ class busOwnerController extends Controller
         $email = $arr['email'];
         $bankdetails = $this->getAccountDetails($email);
 
-        if ($bankdetails == null) {
-            $message = 'You have not entered a bank account please enter your account here';
-            $message2 = '';
-            $true = FALSE;
-
-            $name = $arr['name'];
-        } else {
-            $message = 'Your account number is: ' . $bankdetails[0]->account_num;
-            $message2 = 'Your current balance is ' . $bankdetails[0]->total;
-            $true = TRUE;
-            $name = $bankdetails[0]->name;
+        if($bankdetails==null){
+            $message='You have not entered a bank account please enter your account here';
+            $message2='';
+            $true=FALSE;
+            $namearray=DB::select('CALL bus_owner_get_name(?)',[$email]);
+            $name=$namearray[0]->name;
+        }else{
+            $message='Your account number is: '.$bankdetails[0]->account_num;
+            $message2='Your current balance is '.$bankdetails[0]->total;
+            $true=TRUE;
+            $name=$bankdetails[0]->name;
         }
 
         return view('bus_owner.bankAccount')->with('email', $email)->with('name', $name)->with('message', $message)->with('message2', $message2)->with('true', $true);
@@ -109,7 +110,7 @@ class busOwnerController extends Controller
     public function getAccountDetails($email)
     {
 
-        $accontdetails = DB::select('select owner.name,owner.account_num,total from bank_account,owner where owner.account_num=bank_account.account_num and email=?', [$email]);
+        $accontdetails=DB::select(' CALL bus_owner_get_account_details(?) ',[$email]);
         return $accontdetails;
     }
 
