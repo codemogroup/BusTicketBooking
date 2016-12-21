@@ -80,26 +80,32 @@ Route::get('addnewbus', function () {
     return view('NTC.addNewBus');
 });
 
-Route::get('addnewroute', function () {
-    return view('NTC.addNewRoute');
+
+Route::get('addnewoperator', function () {
+    return view('NTC.addNewOperator');
 });
 
 Route::get('changeroute', function () {
     return view('NTC.routeChange');
 });
 
-Route::post('/search', 'ntcController@executeSearch');
-
-//Route::post("doAjax/{x}","ntcController@doAjax");
+Route::get('editroute', function () {
+    return view('NTC.editRoute')->with('name', 'Victoria');
+});
 
 Route::get('allroutes', 'ntcController@allRoutes');
 Route::get('changeindex', 'ntcController@index');
 Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
-
+Route::post('/ntcstationsearch/{x}', ['uses'=>'ntcController@autocomplete','as'=>'searchstation']);
+Route::get('alloperators', 'ntcController@allOperators');
+Route::get('addnewoperator', 'ntcController@addNewOperator');
+Route::get('addnewroute1', 'ntcController@addNewRoute');
 
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitaddroute', 'ntcController@addRoute');
-    Route::post('/executesearch', array('uses'=>'ntcController@executeSearch'));
+    Route::post('/submitaddoperator', 'ntcController@addOperator');
+    
+    
 
 });
 ////////////////////////NTC routing ends

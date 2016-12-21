@@ -20,7 +20,7 @@ NIC Admin
                                  <form>
                                      <div class="input-field">
 
-                                         <input class="form-control" name="search" id="search" type="search"  required>
+                                         <input class="form-control" placeholder="Search Using Staion Name or Route No" name="search" id="search" type="search"  required>
 
                                          <label for="search"><i class="material-icons">search</i></label>
                                          <i class="material-icons">close</i>
@@ -34,7 +34,8 @@ NIC Admin
                         <tr>
                             <th>Route No</th>
                             <th>Base Station</th>
-                            <th>Destination Station</th>
+                            <th>End Station</th>
+                            <th>Edit</th>
                         </tr>
                         </thead>
                          <tbody>
@@ -47,19 +48,26 @@ NIC Admin
      </div>
     <script type="text/javascript">
 
-        $('#search').on('keyup',function () {
+        $('#search').keyup(function () {
 
             var value=$(this).val();
+            if(value!=""){
             $.ajax({
                 type:'POST',
                 url:'/ntcsearch/'+value,
                 data:'_token=<?php echo csrf_token() ?>',
 
                 success:function (data) {
-                    $('tbody').html(data);
+
+                        $('tbody').html(data);
+
                 }
-            });
-        })
+            });}
+        });
+
+
+
+
     </script>
 
 @endsection
