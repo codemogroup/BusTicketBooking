@@ -3,52 +3,53 @@
 @section('head')
 
     <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
 
-        main {
-            flex: 1 0 auto;
-        }
     </style>
+
 @endsection
 @section('body')
-
-    <div class="carousel carousel-slider center" data-indicators="true">
-
-        <div class="carousel-fixed-item row" style="width: 50%;margin-left: 25% ">
-            <div class=" col s4">
-                <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Pessnger</a>
-            </div>
-
-            <div class="col s4">
-                <a href="{{url('ownersignin')}}" class="btn waves-effect white grey-text darken-text-2"
-                   style="height: 70px">Bus owner</a>
-            </div>
-
-            <div class="col s4 ">
-                <a class="btn waves-effect white grey-text darken-text-2" style="height: 70px">Operator</a>
-            </div>
-        </div>
-        <div class="carousel-item black white-text" href="#one!">
-            <h2>First Panel</h2>
-            <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item black white-text" href="#two!">
-            <h2>Second Panel</h2>
-            <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item black white-text" href="#three!">
-            <h2>Third Panel</h2>
-            <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item black white-text" href="#four!">
-            <h2>Fourth Panel</h2>
-            <p class="white-text">This is your fourth panel</p>
-        </div>
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="https://images7.alphacoders.com/317/317196.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                    <h3>Travel to anywhere</h3>
+                    <h5 class="light grey-text text-lighten-3">Now it's easy.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/ec/c6/03/ecc6034a61eaa29bf829189271732be3.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Book seats from anywhere</h3>
+                    <h5 class="light grey-text text-lighten-3">We will keep it for you</h5>
+                </div>
+            </li>
+            <li>
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/35/da/cf/35dacf9e6a04cac6c446df87e0a9e504.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Islandwide service</h3>
+                    <h5 class="light grey-text text-lighten-3">Keep it booked.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://wallpapercave.com/wp/FV9OQOg.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                    <h3>This is the new way to travel</h3>
+                    <h5 class="light grey-text text-lighten-3">Travel with us.</h5>
+                </div>
+            </li>
+        </ul>
     </div>
+    <div class="row container">
 
+        <a class="col s4 btn" style="height: 60px" href="ownersignin">Bus owner</a>
+        <a class="col s4 btn" style="height: 60px" href="passenger_home">Book Now</a>
+        <a class="col s4 btn" style="height: 60px" href="">Operator</a>
 
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.slider').slider({full_width: true,interval: 1000});
+        });
+    </script>
 @endsection

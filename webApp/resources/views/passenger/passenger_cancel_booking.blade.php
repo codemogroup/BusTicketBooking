@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="row">
+    <div class="container" style="margin-top: 10%">
         <form class="col s12" method="post" action="/passenger_cancel">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row">
@@ -31,6 +31,7 @@
                 @endforeach
             </ul>
         @endif
+    </div>
     </div>
 @endsection
 
