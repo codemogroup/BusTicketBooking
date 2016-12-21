@@ -22,7 +22,7 @@ class operatorController extends Controller
          DB::statement(' CREATE VIEW station2 AS SELECT station as station2, intermediate_id_2,fare_id FROM intermediate join fare on fare.intermediate_id_2=intermediate.intermediate_id');
            DB::statement(' CREATE VIEW busfare AS SELECT fare_id, price_normal,price_highway FROM bus_fee join fare on fare.price_id=bus_fee.price_id');
 
-        $results = DB::select('select booking.date,booking.seats ,customer.name,customer.nic ,bus.number_plate,bus.type,journey.time,station1.station1, station2.station2, busfare.price_normal,busfare.price_highway
+        $results = DB::select('select booking.booking_id,booking.date,booking.seats ,booking.ticket_issued,customer.name,customer.nic ,bus.number_plate,bus.type,journey.direction, journey.time,station1.station1, station2.station2, busfare.price_normal,busfare.price_highway
                   from booking 
                   join customer on booking.customer_id=customer.customer_id 
                   join bus on booking.bus_id=bus.bus_id 
@@ -32,42 +32,18 @@ class operatorController extends Controller
                   join busfare on booking.fare_id= busfare.fare_id
                   where customer.nic =:nic', ['nic' => $request['nic']]);
         return view('operator.operator_show_tickets', ['results' => $results ]);
-       //  $results1 =DB::select('select name from customer where  customer_id=:nic',['nic'=>$request['nic']]);
-        // return $results;
 
-    /*    $bookings = sizeof($results);
-        foreach ($results as $results) {
-            $nic = $results->nic;
-            $name = $results->name;
-            $date = $results->date;
-            $seats = $results->seats;
+    }
+    public function setIssue(Request $request)
+    {
+        DB::update('update booking set ticket_issued = 1 where booking.booking_id =:booking_id', ['booking_id' => $request['booking_id']]);
+        return $this->getTicket($request);
 
-            $type = $results->type;
-            $plateNo = $results->plateNo;
-            $station1 = $results->station1;
-            $station2 = $results->station2;
-
-            if ($type == 'highway') {
-                $fare = $results->price_highway;
-            } else
-                $fare = $results->price_normal;
-
-            // $name=$results1[0]->name;
-            //return redirect()->route('searchtickets');;
-            //return view('operator_show_tickets')->with('id',$id);
-            return view('operator.operator_show_tickets', [
-                'nic' => $nic,
-                'date' => $date,
-                'name' => $name,
-                'seats' => $seats,
-                'plateNo' => $plateNo,
-                'station1' => $station1,
-                'station2' => $station2,
-                'fare' => $fare,
-                'bookings' => $bookings,
-            ]);
-            // return $results;
-        }*/
+    }
+    public function setReject(Request $request)
+    {
+        DB::update('update booking set ticket_issued = 2 where booking.booking_id =:booking_id', ['booking_id' => $request['booking_id']]);
+        return $this->getTicket($request);
     }
   
 }
