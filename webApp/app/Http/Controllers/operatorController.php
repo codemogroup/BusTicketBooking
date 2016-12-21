@@ -22,7 +22,7 @@ class operatorController extends Controller
          DB::statement(' CREATE VIEW station2 AS SELECT station as station2, intermediate_id_2,fare_id FROM intermediate join fare on fare.intermediate_id_2=intermediate.intermediate_id');
            DB::statement(' CREATE VIEW busfare AS SELECT fare_id, price_normal,price_highway FROM bus_fee join fare on fare.price_id=bus_fee.price_id');
 
-        $results = DB::select('select booking.booking_id,booking.date,booking.seats ,booking.ticket_issued,customer.name,customer.nic ,bus.number_plate,bus.type,journey.direction, journey.time,station1.station1, station2.station2, busfare.price_normal,busfare.price_highway
+        $results = DB::select('select booking.booking_id,booking.date,booking.seats ,booking.status,customer.name,customer.nic ,bus.number_plate,bus.type,journey.direction, journey.time,station1.station1, station2.station2, busfare.price_normal,busfare.price_highway
                   from booking 
                   join customer on booking.customer_id=customer.customer_id 
                   join bus on booking.bus_id=bus.bus_id 
