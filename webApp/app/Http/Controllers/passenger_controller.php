@@ -26,13 +26,6 @@ class passenger_controller extends Controller{
         if($date<$current_date){
             return redirect('/passenger_home');
         }
-
-
-        
-
-
-
-
     }
 
     public function passenger_cancel_final(Request $request){
@@ -40,6 +33,7 @@ class passenger_controller extends Controller{
         DB::update('update booking set booking.status=2 where booking.booking_id=?',[$booking_id]);
         return redirect('/passenger_cancel_booking');
     }
+
     public function passenger_cancel(Request $request){
         $this->validate($request,[
                 'your_nic'=>'required',
@@ -65,6 +59,7 @@ class passenger_controller extends Controller{
         }
 
     }
+
     public function passenger_view(Request $request){
         $this->validate($request,[
             'your_nic'=>'required'
@@ -86,6 +81,7 @@ class passenger_controller extends Controller{
 
 
     }
+
     public function passenger_signup(Request $request){
         $this->validate($request,[
             'passenger_name'=>'required',
@@ -117,6 +113,7 @@ class passenger_controller extends Controller{
         }
 
     }
+    
     public function passenger_signin(Request $request){
         $this->validate($request,[
             'nic'=>'required'
@@ -124,10 +121,11 @@ class passenger_controller extends Controller{
         ]);
         $nic=$request['nic'];
 
-        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+        $result=DB::select('select customer_get_customer_count1(?) as x',[$nic]);
+        $count=$result[0]->x;
         
 
-        if(empty($result)){
+        if($count==0){
             return redirect('/passenger_signin');
         }
         else{

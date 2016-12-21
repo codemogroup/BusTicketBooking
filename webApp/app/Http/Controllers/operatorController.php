@@ -22,15 +22,7 @@ class operatorController extends Controller
          DB::statement(' CREATE VIEW station2 AS SELECT station as station2, intermediate_id_2,fare_id FROM intermediate join fare on fare.intermediate_id_2=intermediate.intermediate_id');
            DB::statement(' CREATE VIEW busfare AS SELECT fare_id, price_normal,price_highway FROM bus_fee join fare on fare.price_id=bus_fee.price_id');
 
-        $results = DB::select('select booking.booking_id,booking.date,booking.seats ,booking.status,customer.name,customer.nic ,bus.number_plate,bus.type,journey.direction, journey.time,station1.station1, station2.station2, busfare.price_normal,busfare.price_highway
-                  from booking 
-                  join customer on booking.customer_id=customer.customer_id 
-                  join bus on booking.bus_id=bus.bus_id 
-                  join journey on booking.journey_id=journey.journey_id
-                  join station1 on booking.fare_id= station1.fare_id
-                  join station2 on booking.fare_id= station2.fare_id
-                  join busfare on booking.fare_id= busfare.fare_id
-                  where customer.nic =:nic', ['nic' => $request['nic']]);
+        $results = DB::select('call get_operator_result(?)',[$request['nic']]);
         return view('operator.operator_show_tickets', ['results' => $results ]);
 
     }
@@ -56,12 +48,15 @@ class operatorController extends Controller
     public function signIn(Request $request)
     {
         $id=$request['id'];
-        $results = DB::select('select operator.name , operator.operator_id from operator where operator_id=:id and password=:password', ['id' => $request['id'],'password' => $request['password']] );
-       if (empty($results)){
+        $count =DB::select('select operator_get_customer_count(?) as x',[$id] );
+        $count1=$count[0]->x;
+        /*return ($count1)+1*/;
+
+       if ($count1==0){
             return view('operator.operator_signin');
         }else {
             session()->put(['id' => $id]);
-            return view('operator.operator', ['results' => $results[0]]);
+            return view('operator.operator', ['results' => $id]);
         }
 
     }
