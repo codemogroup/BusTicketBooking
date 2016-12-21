@@ -21,7 +21,7 @@
                 ID
             </div>
             <div class="col s6">
-
+                {{$results->operator_id}}
             </div>
         </div>
         <div class="row" style="padding:3px ">
@@ -38,7 +38,7 @@
                 NIC
             </div>
             <div class="col s6">
-
+                {{$results->nic}}
             </div>
 
         </div>
@@ -47,7 +47,7 @@
                 Telephone Station
             </div>
             <div class="col s6">
-
+                {{$results->telephone}}
             </div>
 
         </div>
@@ -57,7 +57,7 @@
                 Adress
             </div>
             <div class="col s6">
-
+                {{$results->address}}
             </div>
 
         </div>
@@ -67,7 +67,7 @@
                 E-mail
             </div>
             <div class="col s6">
-
+                {{$results->email}}
             </div>
 
         </div>
@@ -76,7 +76,7 @@
                 Station
             </div>
             <div class="col s6">
-
+                {{$results->station_id}}
             </div>
 
         </div>

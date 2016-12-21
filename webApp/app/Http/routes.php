@@ -209,16 +209,18 @@ Route::get('operator_search_tickets', function () {
 Route::get('operator_show_tickets', function () {
     return view('operator.operator_show_tickets');
 });
-//Route::get('operator_profile', function () {
-//    return view('operator.operator_profile');
-//});
+Route::post('operator_show_profile', function () {
+    return view('operator.operator_show_profile');
+});
 Route::get('operator_signin', function () {
     return view('operator.operator_signin');
 });
 Route::get('operator', function () {
     return response()->view('operator.operator');
 })->middleware('operator_authentication');
-
+Route::get('operator_change_password', function () {
+    return view('operator.operator_change_password');
+});
 
 
 
@@ -603,7 +605,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('operator_profile', 'operatorController@getProfile');
     Route::post('operator_sign_in', 'operatorController@signIn');
     Route::get('operator_sign_out', 'operatorController@signOut');
-
+    Route::post('submit_password', 'operatorController@changePassword');
 
 
 

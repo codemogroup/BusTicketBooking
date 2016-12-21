@@ -40,7 +40,8 @@ class operatorController extends Controller
     public function getProfile()
     {
         $results = DB::select('select operator.operator_id,operator.name,operator.nic ,operator.telephone,operator.address,operator.email,operator.station_id from operator where operator_id =:id', ['id' => session()->get('id')]);
-        return view('operator.operator_profile', ['results' => $results ]);
+       // return $results;
+        return view('operator.operator_show_profile', ['results' => $results[0] ]);
     }
     public function signIn(Request $request)
     {
@@ -62,6 +63,23 @@ class operatorController extends Controller
         session()->remove('id');
         return view('operator.operator_signin');
 
+    }
+    public function changePassword(Request $request)
+    {
+        $new=$request['password_new'];
+        $old=$request['password_old'];
+        $conf=$request['password_confirm'];
+
+        $results = DB::select('select operator.password from operator where operator.operator_id =:id', ['id' => session()->get('id')]);
+        $password=$results[0];
+        $pswrd=$password->password;
+        if ($pswrd==$old){
+            if ($new==$conf){
+                DB::update('update operator set operator.password =:password where operator.operator_id =:id', ['id' => session()->get('id'),'password' =>$new]);
+                return view('operator.operator');
+            }
+        }
+        return view('operator.operator_change_password');
     }
 }
 //join journey on booking.journey_id=journey.journey_id
