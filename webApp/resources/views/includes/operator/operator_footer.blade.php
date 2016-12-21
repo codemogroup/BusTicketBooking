@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Logged in as:</h5>
+                    <h5 class="white-text"></h5>
                     @yield('name')
 
                 </div>

@@ -21,7 +21,7 @@
                 <li class="tab"><a target="_self" @yield('tab1') href="operator_new_booking"><i class="material-icons left">subtitles</i>new booking</a></li>
                 <li class="tab"><a target="_self" @yield('tab2') href="operator_search_tickets"><i class="material-icons left">done</i>issue tickets</a></li>
                 <li class="tab"><a target="_self" @yield('tab3') href="operator_cancel_booking"><i class="material-icons left">clear</i>cancel booking</a></li>
-                <li class="tab"><a target="_self" @yield('tab4') href="operator_verify_journey"><i class="material-icons left">call_made</i>verify journey</a></li>
+
             </ul>
         </div>
     </nav>

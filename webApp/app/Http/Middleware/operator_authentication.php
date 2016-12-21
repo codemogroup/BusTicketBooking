@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authentication
+class operator_authentication
 {
     /**
      * Handle an incoming request.
@@ -21,6 +21,5 @@ class authentication
         }else{
             return view('operator.operator_signin');
         }
-        
     }
 }
