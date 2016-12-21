@@ -11,67 +11,96 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-//////////////////////// operator routing starts
-
-Route::get('operator_new_booking', function () {
-    return view('operator.operator_new_booking');
-});
-Route::get('operator_cancel_booking', function () {
-    return view('operator.operator_cancel_booking');
-});
-Route::get('operator_issue_tickets', function () {
-    return view('operator.operator_issue_tickets');
-});
-Route::get('operator_verify_journey', function () {
-    return view('operator.operator_verify_journey');
-});
-
-
-Route::get('operator', function () {
-     return view('operator.operator');
-});
-
-//////////////////////// operator routing ends
-
-Route::get('/signin', function () {
-    return view('authentication.signin');
-});
-
-Route::get('/signup', function () {
-    return view('authentication.signup');
-});
-Route::get('/forgotpassword', function () {
-    return view('authentication.forgotpassword');
-});
-
-
-Route::get('/ownerreg', function () {
-    return view('bus_owner.signup');
-});
 
 
 
-Route::get('/ownerhome',function (){
-   return view('bus_owner.ownerhome'); 
-})->name('ownerhome');
 
 
 
-Route::group(['middleware' => ['web']], function () {
-    Route::post('/submitsigninowner', 'busOwnerController@createOwner');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////////////////////////NTC routing starts
-
-
 Route::get('ntc', function () {
     return view('NTC.ntc');
 });
-
 Route::get('ntctime', function () {
     return view('NTC.ntcTimeTable');
 });
@@ -79,7 +108,6 @@ Route::get('ntctime', function () {
 Route::get('addnewbus', function () {
     return view('NTC.addNewBus');
 });
-
 
 Route::get('addnewoperator', function () {
     return view('NTC.addNewOperator');
@@ -89,23 +117,594 @@ Route::get('changeroute', function () {
     return view('NTC.routeChange');
 });
 
-Route::get('editroute', function () {
-    return view('NTC.editRoute')->with('name', 'Victoria');
+Route::get('/changeoperator', function () {
+    return view('NTC.operatorChange');
 });
 
 Route::get('allroutes', 'ntcController@allRoutes');
+Route::get('allstations', 'ntcController@allStations');
 Route::get('changeindex', 'ntcController@index');
 Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
+Route::post('/ntcsearchoperator/{x}', ['uses'=>'ntcController@searchOperator','as'=>'search2']);
 Route::post('/ntcstationsearch/{x}', ['uses'=>'ntcController@autocomplete','as'=>'searchstation']);
 Route::get('alloperators', 'ntcController@allOperators');
 Route::get('addnewoperator', 'ntcController@addNewOperator');
 Route::get('addnewroute1', 'ntcController@addNewRoute');
+Route::get('addnewstation', 'ntcController@addNewStation');
+
+Route::get('/editroute/{route_id}', ['uses'=>'ntcController@editRoute','as'=>'editRoute']);
+Route::get('/editoperator/{operator_id}', ['uses'=>'ntcController@editOperator','as'=>'editOperator']);
+
+
+
+
+
+////////////////////////NTC routing ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitaddroute', 'ntcController@addRoute');
     Route::post('/submitaddoperator', 'ntcController@addOperator');
-    
-    
+    Route::post('/submitaddstation', 'ntcController@addStation');
+
+    Route::post('/submitIntermediate', 'ntcController@addIntermediate');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
-////////////////////////NTC routing ends
+
+
+
+

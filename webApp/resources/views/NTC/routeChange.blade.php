@@ -10,14 +10,14 @@ NIC Admin
          <div class="row">
              <div class="panel panel-default">
                  <div class="panel-heading">
-                     <h3>Route Information</h3>
+
                  </div>
-                 <div class="panel-body">
+                 <div class="panel-body" style="padding-top: 10px">
                      <div class="form-group">
 
-                         <nav>
+                         <nav >
                              <div class="nav-wrapper">
-                                 <form>
+                                 <form >
                                      <div class="input-field">
 
                                          <input class="form-control" placeholder="Search Using Staion Name or Route No" name="search" id="search" type="search"  required>

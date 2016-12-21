@@ -57,26 +57,20 @@
                 </div>
                     <div  style="float: left; width: 60%;">
                         <div class="row margin" >
-                        <label >Intermediate Stations</label>
+                        <label >Add Intermediate Stations In Order</label>
                         </div>
 
                         <div id="mainrow" class="row margin" >
-                            <div class="col s4">
-                            <div style=" width: 100%">
-                                <div  class="input-field col s12" id="prior">Prior Station<br><div class="ui-widget"><input class="element"  type="text" id="mypriorInputsid[]" name="mypriorInputs[]"></div></div>
-                            </div>
-                            </div>
+
                             <div class="col s4">
                             <div style=" width: 100%">
                                 <div class="input-field col s12" id="main">Intermediate Station 1<br><div class="ui-widget"><input class="element" type="text" id="mymainInputsid[]" name="mymainInputs[]"></div></div>
                             </div>
                             </div>
-                            <div class="col s4">
-                            <div style=" width: 100%">
-                                <div class="input-field col s12" id="next">Next Station<br><div class="ui-widget"><input class="element" type="text" id="mynextInputsid[]" name="mynextInputs[]"></div></div>
-                            </div>
-                            </div>
+
                         </div>
+
+
 
 
 
@@ -91,7 +85,7 @@
               </div>
             </form>
             <div class="row margin" >
-                <button class="btn waves-effect waves-light col col-sm-offset-6"  style="background-color:  #2e6da4"  onclick="addInputprior('prior');addInputmain('main');addInputnext('next')">Add a Intermediate Station</button>
+                <button class="btn waves-effect waves-light col col-sm-offset-6"  style="background-color:  #2e6da4"  onclick="addInputmain('main')">Add a Intermediate Station</button>
 
             </div>
 
@@ -175,16 +169,7 @@
 
 ///////////////////////////////////////////////
 
-        var counterPrior = 1;
-        function addInputprior(divName){
 
-
-                var newdiv = document.createElement('div');
-                newdiv.innerHTML = 'Prior Station' + " <br><div class='ui-widget'><input class='element' type='text' id='mypriorInputsid[]' name='mypriorInputsname[]'></div>";
-                document.getElementById(divName).appendChild(newdiv);
-            counterPrior++;
-
-        }
         var counterMain = 1;
         function addInputmain(divName){
 
@@ -195,16 +180,7 @@
             counterMain++;
 
         }
-        var counterNext = 1;
-        function addInputnext(divName){
 
-
-            var newdiv = document.createElement('div');
-            newdiv.innerHTML = 'Next Station' + " <br><div class='ui-widget'><input class='element' type='text' id='mynextInputsid'  name='mynextInputsname[]'></div>";
-            document.getElementById(divName).appendChild(newdiv);
-            counterNext++;
-
-        }
 
 
         /////////////////////////////////////////////////////

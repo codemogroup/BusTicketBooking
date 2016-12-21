@@ -9,22 +9,32 @@
 
 @section('content')
     <div class="row">
-        <div class="col s3" id ="leftSide">
-            <div class="row" style="padding:30px ">
-                <div class="input-field">
-                    <input placeholder="Enter here" id="first_name2" type="text" class="validate">
-                    <label class="active" for="first_name2" style="font-size: large">NIC Number</label>
+
+        <div class="col s4" id ="leftSide">
+            {{--empty column--}}
+        </div>
+
+        <div class="col s3" id ="middle" style="padding-top: 100px">
+            <form class="col s12" method="post" action="submit_nic">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="row" style="padding:30px ">
+                    <div class="input-field">
+                        <input placeholder="Enter here" id="nic" name="nic" type="text" class="validate">
+                        <label class="active" for="first_name2" style="font-size: large">NIC Number</label>
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="row" style="padding-left:30px">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Check
+                        <i class="material-icons right">search</i>
+                    </button>
 
-            <div class="row" style="padding-left:30px">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Check
-                    <i class="material-icons right">search</i>
-                </button>
+                </div>
+            </form>
 
-            </div>
         </div>
+        <!--
         <div class="col s6" id ="Middle" style="padding-top:30px">
             <div class="row" style="padding:3px" >
                 <div class="col s6" style="background-color: rgba(71, 58, 83, 0.2)" >
@@ -82,6 +92,7 @@
 
             </div>
         </div>
+
         <div class="col s3" id ="rightSide" style="padding-top:200px">
             <div class="row" style="padding:5px ">
                 <button class="btn waves-effect waves-light" type="submit" name="action">issue
@@ -89,5 +100,6 @@
                 </button>
             </div>
         </div>
+        -->
     </div>
 @endsection

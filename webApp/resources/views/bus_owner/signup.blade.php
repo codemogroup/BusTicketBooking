@@ -6,8 +6,8 @@
 @section('content')
 
     <div id="signup-page" class="row">
-        <div class="col s12 z-depth-6 card-panel" style="padding: 3%">
-            <form class="login-form r" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="/submitsigninowner">
+        <div class="col s12 z-depth-6 " style="padding: 3%">
+            <form class="login-form row" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="/submitownersignup">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
 
@@ -80,6 +80,15 @@
                         <button class="btn waves-effect waves-light col s12" style="background-color:  #2e6da4"
                                 type="submit">Sign up
                         </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a href="/ownersignin">Sign in</a></p>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a href="forgot-password.html">Forgot password?</a>
+                        </p>
                     </div>
                 </div>
 
