@@ -23,6 +23,8 @@ class ntcController extends Controller
             $request['routeNo'],
             $request['first'],
             $request['second']
+
+
         ]);
     }
 
@@ -84,6 +86,7 @@ class ntcController extends Controller
     public function addNewRoute(Request $request)
     {
         $count = DB::select('SELECT COUNT(*) as count1 FROM route ');
+
         return view('NTC.addNewRoute', ['count' => $count ]);
 
     }

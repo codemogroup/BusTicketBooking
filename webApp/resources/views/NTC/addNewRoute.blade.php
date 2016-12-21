@@ -16,11 +16,11 @@
     <div id="form" class="row" style="padding-bottom: 10px">
         <div class="col s12 z-depth-6 card-panel" >
 
-            <form class="login-form r" style="color: #2e6da4; margin-left: 2%;width: 80%" method="post" action="/submitaddroute">
+            <form class="login-form r " style="color: #2e6da4; margin-left: 0%; margin-right: 0%; width: 100%" method="post" action="/submitaddroute">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div style="float: left; width: 40%;">
 
                     <div class="row margin">
                         <div class="input-field  col s4">
@@ -55,17 +55,45 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6">
-                    <label >Intermediate Stations</label>
+                    <div  style="float: left; width: 60%;">
+                        <div class="row margin" >
+                        <label >Intermediate Stations</label>
+                        </div>
+
+                        <div id="mainrow" class="row margin" >
+                            <div class="col s4">
+                            <div style=" width: 100%">
+                                <div  class="input-field col s12" id="prior">Prior Station<br><div class="ui-widget"><input class="element"  type="text" id="mypriorInputsid[]" name="mypriorInputs[]"></div></div>
+                            </div>
+                            </div>
+                            <div class="col s4">
+                            <div style=" width: 100%">
+                                <div class="input-field col s12" id="main">Intermediate Station 1<br><div class="ui-widget"><input class="element" type="text" id="mymainInputsid[]" name="mymainInputs[]"></div></div>
+                            </div>
+                            </div>
+                            <div class="col s4">
+                            <div style=" width: 100%">
+                                <div class="input-field col s12" id="next">Next Station<br><div class="ui-widget"><input class="element" type="text" id="mynextInputsid[]" name="mynextInputs[]"></div></div>
+                            </div>
+                            </div>
+                        </div>
+
+
+
+
                 </div>
 
                 <div class="row">
                     <div class="col s10 center" style="width: 70%;margin-left: 15%">
-                        <button class="btn waves-effect waves-light col s6" style="background-color:  #2e6da4" type="submit">Submit</button>
+                        <button class="btn waves-effect waves-light col s6"  style="background-color:  #2e6da4" type="submit">Submit</button>
                     </div>
                 </div>
               </div>
             </form>
+            <div class="row margin" >
+                <button class="btn waves-effect waves-light col col-sm-offset-6"  style="background-color:  #2e6da4"  onclick="addInputprior('prior');addInputmain('main');addInputnext('next')">Add a Intermediate Station</button>
+
+            </div>
 
         </div>
 
@@ -101,21 +129,21 @@
                     data:'_token=<?php echo csrf_token() ?>',
                     success:function (data) {
 
-                        setBaseData(data);
+                        setData(data,'#base');
 
                     }
                 });
             }
         });
 
-        function setBaseData(data) {
+        function setData(data,id) {
             array2=JSON.parse(data.res);
             array3=[];
             array2.forEach(function (item) {
                 array3.push(item.toString());
             });
             array1=array3;
-            $("#base").autocomplete({
+            $(id).autocomplete({
                 source:array1
             } );
 
@@ -137,25 +165,75 @@
                     data:'_token=<?php echo csrf_token() ?>',
                     success:function (data) {
 
-                        setEndData(data);
+                        setData(data,'#end');
 
                     }
                 });
             }
         });
 
-        function setEndData(data) {
-            array2=JSON.parse(data.res);
-            array3=[];
-            array2.forEach(function (item) {
-                array3.push(item.toString());
-            });
-            array1=array3;
-            $("#end").autocomplete({
-                source:array1
-            } );
+
+///////////////////////////////////////////////
+
+        var counterPrior = 1;
+        function addInputprior(divName){
+
+
+                var newdiv = document.createElement('div');
+                newdiv.innerHTML = 'Prior Station' + " <br><div class='ui-widget'><input class='element' type='text' id='mypriorInputsid[]' name='mypriorInputsname[]'></div>";
+                document.getElementById(divName).appendChild(newdiv);
+            counterPrior++;
 
         }
+        var counterMain = 1;
+        function addInputmain(divName){
+
+
+            var newdiv = document.createElement('div');
+            newdiv.innerHTML = 'Intermediate Station '+ (counterMain + 1) + " <br><div class='ui-widget'><input class='element type='text' id='mymainInputsid' name='mymainInputsname[]'></div>";
+            document.getElementById(divName).appendChild(newdiv);
+            counterMain++;
+
+        }
+        var counterNext = 1;
+        function addInputnext(divName){
+
+
+            var newdiv = document.createElement('div');
+            newdiv.innerHTML = 'Next Station' + " <br><div class='ui-widget'><input class='element' type='text' id='mynextInputsid'  name='mynextInputsname[]'></div>";
+            document.getElementById(divName).appendChild(newdiv);
+            counterNext++;
+
+        }
+
+
+        /////////////////////////////////////////////////////
+
+
+
+
+        $('.element').keyup(function () {
+
+            var value=$(this).val();
+            if(value!=""){
+                $.ajax({
+                    type:'POST',
+                    url:'/ntcstationsearch/'+value,
+                    data:'_token=<?php echo csrf_token() ?>',
+                    success:function (data) {
+
+                        setData(data,'.element');
+
+                    }
+                });
+            }
+        });
+
+        $( ".element" ).autocomplete({
+            source:array1
+        } );
+
+
 
     </script>
 
