@@ -14,16 +14,19 @@
 
 
 Route::get('operator_new_booking', function () {
-    return view('operator_new_booking');
+    return view('operator.operator_new_booking');
 });
 Route::get('operator_cancel_booking', function () {
-    return view('operator_cancel_booking');
+    return view('operator.operator_cancel_booking');
 });
-Route::get('operator_issue_tickets', function () {
-    return view('operator_issue_tickets');
+Route::get('operator_search_tickets', function () {
+    return view('operator.operator_search_tickets');
+});
+Route::get('operator_show_tickets', function () {
+    return view('operator.operator_show_tickets');
 });
 Route::get('operator_verify_journey', function () {
-    return view('operator_verify_journey');
+    return view('operator.operator_verify_journey');
 });
 
 
@@ -126,8 +129,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/submitownersignup', 'busOwnerController@createOwner');
     Route::post('/submitownersignin','busOwnerController@signIn');
     Route::post('submit_nic', 'operatorController@getTicket');
-
-
+    Route::post('submit_issue', 'operatorController@setIssue');
+    Route::post('submit_reject', 'operatorController@setReject');
     Route::post('addbankaccount', 'busOwnerController@addAccount');
 
 

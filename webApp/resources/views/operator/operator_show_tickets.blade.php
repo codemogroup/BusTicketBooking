@@ -112,9 +112,10 @@
             <th data-field="time">Time</th>
             <th data-field="from">From</th>
             <th data-field="to">To</th>
-            <th data-field="seats">Seat Numbers</th>
+            <th data-field="seats">No of Sheets</th>
             <th data-field="fare">Fare</th>
             <th data-field="status">Status</th>
+            <th data-field="options">Options</th>
         </tr>
         </thead>
 
@@ -128,23 +129,59 @@
             <td>{{ $results->name}}</td>
             <td> {{ $results->number_plate }}</td>
             <td> {{ $results->time }}</td>
-            <td> {{ $results->station1 }}</td>
-            <td> {{ $results->station2 }}</td>
-            <td> {{ $results->seats }} </td>
             <td>
-                @if ( $results->type == 'highway') {
-                    {{$results->price_highway}}
-                }@else
-                    {{$results->price_normal}}
+                @if ( $results->direction=='1')
+                    {{ $results->station1 }}
+                @else
+                    {{ $results->station2 }}
                 @endif
             </td>
             <td>
-                <button class="btn waves-effect waves-light" type="submit" name="action">issue
-                    <i class="material-icons right">check_circle</i>
-                </button>
-                <button class="btn waves-effect waves-light" type="submit" name="action">reject
-                    <i class="material-icons right">cancel</i>
-                </button>
+                @if ( $results->direction=='1')
+                    {{ $results->station2 }}
+                @else
+                    {{ $results->station1 }}
+                @endif
+            </td>
+            <td> {{ $results->seats }} </td>
+            <td>
+                @if ( $results->type == 'highway')
+                    {{($results->price_highway)*($results->seats)}}
+                @elseif( $results->type == 'normal') {
+                    {{($results->price_normal)*($results->seats)}}
+                @elseif( $results->type == 'semiluxury') {
+                    {{($results->price_normal)*3/2*($results->seats)}}
+                @else
+                    {{($results->price_normal)*2*($results->seats)}}
+                @endif
+            </td>
+            <td>
+                @if ( $results->ticket_issued=='1')
+                    Issued
+                @elseif ( $results->ticket_issued=='0')
+                    Not Issued
+                @else
+                    Rejected
+                @endif
+            </td>
+            <td>
+                <form method="post" action="submit_issue">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="booking_id" value={{ $results->booking_id }} />
+                    <input type="hidden" name="nic" value={{ $results->nic }} />
+                    <button class="btn waves-effect waves-light" type="submit" name="action">issue
+                        <i class="material-icons right">check_circle</i>
+                    </button>
+                </form>
+                <br>
+                <form method="post" action="submit_reject">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="booking_id" value={{ $results->booking_id }} />
+                    <input type="hidden" name="nic" value={{ $results->nic }} />
+                    <button class="btn waves-effect waves-light" type="submit" name="action">reject
+                        <i class="material-icons right">cancel</i>
+                    </button>
+                </form>
             </td>
         </tr>
 
