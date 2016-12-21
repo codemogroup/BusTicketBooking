@@ -1,6 +1,6 @@
 
 
-@extends('../layout.master')
+@extends('layout.master')
 
 @section('logo')
     Sign In

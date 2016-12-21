@@ -18,10 +18,10 @@
             </ul>
             {{--navbar--}}
             <ul class="tabs tabs-transparent">
-                <li class="tab"><a  href="#home"><i class="material-icons left">home</i>home</a></li>
-                <li class="tab"><a  href="#bankaccount"><i class="material-icons left">account_balance</i>Bank account</a></li>
-                <li class="tab"><a href="#addbus"><i class="material-icons left">directions_bus</i>Add bus request</a></li>
-                <li class="tab"><a  href="#editbus"><i class="material-icons left">directions_bus</i>Edit bus</a></li>
+                {{--<li class="tab"><a target="_self" @yield('tab1')  href="#home"><i class="material-icons left">home</i>home</a></li>--}}
+                <li class="tab"><a target="_self" @yield('tab1')  href="ownerbank"><i class="material-icons left">account_balance</i>Bank account</a></li>
+                <li class="tab"><a target="_self" @yield('tab2') href="owneraddbus"><i class="material-icons left">directions_bus</i>Add bus request</a></li>
+                {{--<li class="tab"><a  target="_self" @yield('tab3') href="ownereditbus"><i class="material-icons left">directions_bus</i>Edit bus</a></li>--}}
                 {{--<li class="tab"><a target="_self" @yield('tab4') href=""><i class="material-icons left">call_made</i>other</a></li>--}}
             </ul>
         </div>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Operator</title>
+    <title>Passenger</title>
 
     <!-- Compiled and minified CSS -->
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,18 +24,23 @@
 
 <body>
 
-    <div id="wrapper">
-        @include('includes.operator.operator_header')
-    <div id="content" >
+<div id="wrapper">
+    @yield('header')
+
+    <div id="content" style="padding: 5px">
         @yield('content')
     </div><!-- #content -->
-        @include('includes.operator.operator_footer')
-    </div><!-- #wrapper -->
 
+</div><!-- #wrapper -->
 
-
-</body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+
+</body>
 
 </html>

@@ -10,14 +10,31 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('test', function () {
+
+// test under
+
+
+
+//test above
+
+Route::get('test', function (){
     return view('testview');
 });
 
-Route::get('test/{{va}}', function () {
-    return view('testview');
-});
 
+
+
+Route::get('autocompleteMainStation','commonController@autoCompleteMainStation');
+
+Route::get('autocompleteIntermediateStation','commonController@autoCompleteIntermediateStation');
+
+
+
+
+
+Route::post('/testing', 'busOwnerController@searchTest');
+
+//Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,15 +57,7 @@ Route::get('operator_verify_journey', function () {
 
 //
 
-Route::get('/signin', function () {
-    return view('authentication.signin');
-});
-//returnRoute::get('operator', function () {
-//     return view('operator');
-//});
-Route::get('/signup', function () {
-    return view('authentication.signup');
-});
+
 
 Route::get('operator', function () {
     return view('operator.operator');
@@ -59,9 +68,7 @@ Route::get('operator', function () {
 
 
 
-Route::get('/forgotpassword', function () {
-    return view('authentication.forgotpassword');
-});
+
 //
 
 
@@ -77,19 +84,21 @@ Route::get('/ownerreg', function () {
 //});
 
 Route::get('/ownerhome',function (){
-    return view('bus_owner.ownerhome');
+    return view('bus_owner.bankAccount');
 })->name('ownerhome');
 
 
 Route::get('/passenger_home',function (){
     return view('passenger.passenger_search');
 });
-Route::get('/passenger_search',function (){
-    return view('passenger.passenger_search');
+//Route::post('/passenger_search',function (){
+//    return view('passenger.passenger_search');
 
 //Route::get('ownerhome',function($email) {
 //    return view('bus_owner.ownerhome')->with('email',$email);
-});
+//});
+
+Route::post('addBooking','passenger_controller@addBooking');
 
 
 Route::get('ownersignup', function () {
@@ -117,7 +126,7 @@ Route::get('/passenger_view_results',function (){
 Route::get('/passenger_cancel_results',function (){
     return view('passenger.passenger_cancel_results');
 });
-Route::get('/passenger_search_results',function (){
+Route::get('passengerSearchResults',function (){
     return view('passenger.passenger_search_results');
 });
 Route::get('/passenger_seat_book',function (){
@@ -134,6 +143,9 @@ Route::get('/passenger_signup', function () {
 });
 
 Route::get('signout','busOwnerController@signout');
+
+
+Route::post('passengerSearch','passenger_controller@searchBuses');
 
 
 Route::group(['middleware' => ['web']], function () {
@@ -174,13 +186,16 @@ Route::group(['middleware' => ['web']], function () {
         return view('authentication.passenger_signup');
     });
 
+    Route::post('/submitaddroute', 'ntcController@addRoute');
+    Route::post('/executesearch', array('uses'=>'ntcController@executeSearch'));
+
 
 });
 
-Route::get('ownerhome', 'busOwnerController@getHome')->middleware('authentication');
+Route::get('ownerhome', 'busOwnerController@getBankDetails')->middleware('authentication');
 
 
-
+Route::post('addbusrequest', 'busOwnerController@addBusRequest');
 
 
 
@@ -216,10 +231,15 @@ Route::get('changeindex', 'ntcController@index');
 Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
 
 
-Route::group(['middleware' => ['web']], function () {
-    Route::post('/submitaddroute', 'ntcController@addRoute');
-    Route::post('/executesearch', array('uses'=>'ntcController@executeSearch'));
 
-});
 ////////////////////////NTC routing ends
+
+
+Route::get('ownerbank', 'busOwnerController@getBankDetails');
+
+Route::get('owneraddbus', 'busOwnerController@getaddBus');
+
+Route::get('editbus', function () {
+    return view('bus_owner.editbus');
+});
 

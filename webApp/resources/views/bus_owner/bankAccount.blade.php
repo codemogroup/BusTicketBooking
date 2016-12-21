@@ -1,4 +1,22 @@
-<div class="">
+@extends('layout.owner')
+
+
+@section('title')
+    Add Bus
+@endsection
+@section('tab1')
+    class="active"
+@endsection
+
+@section('body')
+
+
+
+
+
+<div class="container" style="margin-top: 5%">
+
+    <div class="">
     <div class="row">
         <div class="col s8" style=" font-size: 18pt">
             <div class="row">{{$message}}</div>
@@ -58,3 +76,5 @@
 
 
 </div>
+</div>
+@endsection

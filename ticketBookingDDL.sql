@@ -93,7 +93,7 @@ CREATE TABLE bus
     FOREIGN KEY (owner_id) REFERENCES owner(owner_id) ON UPDATE CASCADE,
     FOREIGN KEY (route_id) REFERENCES route(route_id) ON UPDATE CASCADE
 );
-CREATE TABLE bus_requeats
+CREATE TABLE bus_requests
 (
     bus_id              INT  PRIMARY KEY NOT NULL AUTO_INCREMENT,
     number_plate        VARCHAR(15) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE journey
 (
     journey_id          INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     direction           BOOLEAN NOT NULL,
-    time                DATETIME NOT NULL,
+    time                TIME NOT NULL,
     unavailable_days    VARCHAR(80),
     bus_id              INT NOT NULL,
     route_id            INT NOT NULL,
@@ -141,14 +141,15 @@ CREATE TABLE fare
 CREATE TABLE booking
 (
     booking_id      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    date            DATETIME    NOT NULL,
+    date            DATE NOT NULL,
     seats           INT NOT NULL,
     no_of_seats     VARCHAR(50) NOT NULL,
     bus_id          INT NOT NULL,
     journey_id      INT NOT NULL ,
     fare_id         INT NOT NULL ,
     customer_id     INT NOT NULL ,
-    FOREIGN KEY (bus_id)    REFERENCES bus(bus_id),
+    status          INT,
+    FOREIGN KEY (bus_id)        REFERENCES bus(bus_id),
     FOREIGN KEY (journey_id)    REFERENCES journey(journey_id),
     FOREIGN KEY (customer_id)   REFERENCES customer(customer_id),
     FOREIGN KEY (fare_id)       REFERENCES fare(fare_id)

@@ -44,16 +44,16 @@ INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `rout
 INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `route_id`) VALUES ('normal','55','20','ow3','3');
 INSERT INTO `bus`( `type`, `no_of_seats`, `seats_for_booking`, `owner_id`, `route_id`) VALUES ('luxury','60','15','ow4','4');
 
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','9:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','12:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','15:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','18:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','21:00',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','10:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','13:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','16:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','19:30',"sunday",'1','1');
-INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','22:30',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','09:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','12:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','15:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','18:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('1','21:00:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','10:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','13:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','16:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','19:30:00',"sunday",'1','1');
+INSERT INTO `journey`( `direction`, `time`, `unavailable_days`, `bus_id`, `route_id`) VALUES ('0','22:30:00',"sunday",'1','1');
 
 INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('colombo','1');
 INSERT INTO `intermediate`( `station`, `route_id`) VALUES ('kadawatha','1');
