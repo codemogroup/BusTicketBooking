@@ -497,12 +497,6 @@ Route::get('/editoperator/{operator_id}', ['uses'=>'ntcController@editOperator',
 
 
 
-
-
-
-
-
-
 Route::group(['middleware' => ['web']], function () {
     Route::post('/submitaddroute', 'ntcController@addRoute');
     Route::post('/submitaddoperator', 'ntcController@addOperator');
