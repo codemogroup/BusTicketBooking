@@ -36,7 +36,7 @@ class busOwnerController extends Controller
     public function signIn(Request $request)
     {
         $email = $request['email'];
-        $passwordarray= DB::select("select password from owner where email=:e",['e'=>$email]);
+        $passwordarray= DB::select(" CALL bus_owner_get_password(?)",['e'=>$email]);
         $password=$passwordarray[0]->password;
         
         if ($password == $request['password']) {
@@ -63,7 +63,7 @@ class busOwnerController extends Controller
             $message='You have not entered a bank account please enter your account here';
             $message2='';
             $true=FALSE;
-            $namearray=DB::select('select name from owner where email=?',[$email]);
+            $namearray=DB::select('CALL bus_owner_get_name(?)',[$email]);
             $name=$namearray[0]->name;
         }else{
             $message='Your account number is: '.$bankdetails[0]->account_num;
@@ -94,7 +94,7 @@ class busOwnerController extends Controller
 
     public function getAccountDetails($email){
 
-        $accontdetails=DB::select('select owner.name,owner.account_num,total from bank_account,owner where owner.account_num=bank_account.account_num and email=?',[$email]);
+        $accontdetails=DB::select(' CALL bus_owner_get_account_details(?) ',[$email]);
         return $accontdetails;
     }
 
