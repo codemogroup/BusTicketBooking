@@ -27,7 +27,7 @@ CREATE TABLE route
 
 CREATE TABLE intermediate
 (
-    intermediate_id DECIMAL(5,2) PRIMARY KEY NOT NULL,
+    intermediate_id DECIMAL(6,3) PRIMARY KEY NOT NULL,
     station         VARCHAR(100) NOT NULL,
     route_id        INT NOT NULL,
     FOREIGN KEY (route_id) REFERENCES route(route_id) ON UPDATE CASCADE
@@ -129,8 +129,8 @@ CREATE TABLE fare
 (
     fare_id           INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     route_id          INT NOT NULL,
-    intermediate_id_1 DECIMAL(5,2) NOT NULL,
-    intermediate_id_2 DECIMAL(5,2) NOT NULL,
+    intermediate_id_1 DECIMAL(6,3) NOT NULL,
+    intermediate_id_2 DECIMAL(6,3) NOT NULL,
     price_id          INT NOT NULL,
     FOREIGN KEY (route_id)          REFERENCES route(route_id),
     FOREIGN KEY (intermediate_id_1) REFERENCES intermediate(intermediate_id),
