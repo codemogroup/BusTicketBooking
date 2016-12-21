@@ -1,8 +1,448 @@
 <?php
+Route::get('/passenger_home',function (){
+    return view('passenger.passenger_search');
+});
+Route::get('/passenger_search',function (){
+    return view('passenger.passenger_search');
+});
+
+Route::get('/passenger_new_booking',function (){
+    return view('passenger.passenger_new_booking');
+});
+
+Route::get('/passenger_cancel_booking',function (){
+    return view('passenger.passenger_cancel_booking');
+});
+Route::get('/passenger_view_booking',function (){
+    return view('passenger.passenger_view_booking');
+});
+Route::get('/passenger_view_results',function (){
+    return view('passenger.passenger_view_results');
+});
+Route::get('/passenger_cancel_results',function (){
+    return view('passenger.passenger_cancel_results');
+});
+Route::get('/passenger_search_results',function (){
+    return view('passenger.passenger_search_results');
+});
+Route::get('/passenger_seat_book',function (){
+    return view('passenger.passenger_seat_book');
+});
+Route::get('/passenger_pay',function (){
+    return view('passenger.passenger_pay');
+});
+Route::get('/passenger_signin', function () {
+    return view('authentication.passenger_signin');
+});
+Route::get('/passenger_signup', function () {
+    return view('authentication.passenger_signup');
+});
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
 
 
 
@@ -406,12 +846,17 @@ Route::get('ownersignin', function () {
     return view('bus_owner.signin');
 
 });
+=======
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 Route::get('signout','busOwnerController@signout');
 
 
 
+<<<<<<< HEAD
 Route::post('addbusrequest', 'busOwnerController@addBusRequest');
+=======
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 
 
@@ -420,21 +865,28 @@ Route::get('ownerbank', 'busOwnerController@getBankDetails');
 
 Route::get('owneraddbus', 'busOwnerController@getaddBus');
 
+<<<<<<< HEAD
 Route::get('editbus', function () {
     return view('bus_owner.editbus');
 });
+=======
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 
 
 
 
+<<<<<<< HEAD
 //owner routes
+=======
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 
 
 
 
 
+<<<<<<< HEAD
 //other
 
 
@@ -498,6 +950,14 @@ Route::get('test', function (){
 
 
 Route::group(['middleware' => ['web']], function () {
+=======
+
+
+
+
+
+
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 
 
@@ -526,6 +986,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -655,6 +1116,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/submitsigninowner', 'busOwnerController@createOwner');
 //    Route::post('/passenger_search', 'passenger_controller@passenger_search');
     
+=======
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/passenger_search', 'passenger_controller@passenger_search');
+    Route::post('/passenger_cancel_final', 'passenger_controller@passenger_cancel_final');
+    Route::post('/passenger_view', 'passenger_controller@passenger_view');
+    
+    Route::post('/passenger_signup', 'passenger_controller@passenger_signup');
+    Route::post('/passenger_signin', 'passenger_controller@passenger_signin');
+    Route::post('/passenger_cancel', 'passenger_controller@passenger_cancel');
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
     Route::get('/passenger_search',function (){
         return view('passenger.passenger_search');
     });
@@ -696,6 +1167,148 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 });
 

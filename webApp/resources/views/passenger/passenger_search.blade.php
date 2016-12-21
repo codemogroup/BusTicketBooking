@@ -55,9 +55,15 @@
 
 
             </div>
+<<<<<<< HEAD
             <div class="row container" >
                 <div class="col s6" style="width: 70%;margin-left: 35%;margin-top: 2%">
                 <button class="btn waves-effect waves-light" style="width: 100%; margin-right: 25%;background-color:  #2e6da4" type="submit" name="action">Search
+=======
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action" href="/passenger_home">Search
+                    <i class="material-icons right">send</i>
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
                 </button>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use DB;
 
 
+<<<<<<< HEAD
 class passenger_controller extends Controller
 {
 
@@ -193,13 +194,66 @@ class passenger_controller extends Controller
 //        return $idto;
         return view('passenger.passenger_search_results')->with('buses', $journies)->with('date', $date)->with('from', $from)->with('to', $to)->with('direction', $direction);
     }
+=======
+class passenger_controller extends Controller{
+    public function passenger_cancel_final(Request $request){
+        $booking_id=$request['booking_id'];
+        DB::update('update booking set booking.status=2 where booking.booking_id=?',[$booking_id]);
+        return redirect('/passenger_cancel_booking');
+    }
 
+    public function passenger_cancel(Request $request){
+        $this->validate($request,[
+                'your_nic'=>'required',
+                'booking_id'=>'required'
+
+        ]);
+        $nic=$request['your_nic'];
+        $booking_id=$request['booking_id'];
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+        if (empty($result)){
+            return redirect('/passenger_signup');
+        }else{
+            $result2=DB::select('CALL get_customer_id(?)',[$booking_id]);
+            if ($result[0]->customer_id==$result2[0]->customer_id){
+                $customer_id=$result[0]->customer_id;
+                $journey_result=DB::select('CAll booking_result(?)',[$customer_id]);
+                return view('passenger.passenger_cancel_results',['journey_result'=>$journey_result]);
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
+
+            }else{
+                return redirect('/passenger_cancel_booking');
+            }
+
+        }
 
     public function getBusNo($id)
     {
         $no = DB::select('select number_plate from bus where bus_id=?', [$id])[0]->number_plate;
         return $no;
     }
+<<<<<<< HEAD
+=======
+
+    public function passenger_view(Request $request){
+        $this->validate($request,[
+            'your_nic'=>'required'
+        ]);
+        $nic=$request['your_nic'];
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+        if(empty($result)){
+            return redirect('/passenger_signup');
+
+        }else{
+
+            $customer_id=$result[0]->customer_id;
+            $journey_result=DB::select('CAll booking_result(?)',[$customer_id]);
+            
+            return view('passenger.passenger_view_results',['journey_result'=>$journey_result]);
+
+        }
+
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
     public function getBusType($id)
     {
@@ -233,6 +287,7 @@ class passenger_controller extends Controller
         $busDetails['NumberOfBookedSeats'] = $total;
         return $busDetails;
     }
+<<<<<<< HEAD
 
 
     public function getRouteId($idfrom, $idto)
@@ -241,6 +296,33 @@ class passenger_controller extends Controller
         $farray = array();
         foreach ($routeIdf as $rou) {
             array_push($farray, $rou->route_id);
+=======
+
+    public function passenger_signup(Request $request){
+        $this->validate($request,[
+            'passenger_name'=>'required',
+            'nic'=>'required',
+            'address'=>'required',
+            'telephone'=>'required'
+
+
+        ]);
+        $passenger_name=strtolower($request['passenger_name']);
+        $nic=$request['nic'];
+        $address=$request['address'];
+        $telephone=$request['telephone'];
+        $result=DB::select('CALL get_cus_id(?)',[$nic]);
+
+
+        if(empty($result)){
+            DB::insert('insert into customer(name,nic,telephone,address) values(?,?,?,?)',[
+                $passenger_name,
+                $nic,
+                $telephone,
+                $address
+            ] );
+            return redirect('/passenger_home')->with(['nic'=>$nic]);
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
         }
         $routeIdt = DB::select("select route_id from intermediate where intermediate_id=?", [$idto]);
@@ -255,6 +337,13 @@ class passenger_controller extends Controller
         return $result;
 
     }
+<<<<<<< HEAD
+=======
+
+    public function passenger_signin(Request $request){
+        $this->validate($request,[
+            'nic'=>'required'
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 
 
     public function addBooking(Request $request)
@@ -338,6 +427,7 @@ class passenger_controller extends Controller
             $date, $seats, $bus_id, $journey_id, $customer_id, $fare_id
         ]);
 
+<<<<<<< HEAD
         return view('passenger.passenger_search');
     }
 
@@ -359,6 +449,14 @@ class passenger_controller extends Controller
         }
         if (empty($resultArr)) {
             return redirect()->back();
+=======
+        $result=DB::select('select customer_get_customer_count1(?) as x',[$nic]);
+        $count=$result[0]->x;
+        
+
+        if($count==0){
+            return redirect('/passenger_signin');
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
         }
         $fareId = $resultArr[0]->fare_id;
         return $fareId;
@@ -390,4 +488,249 @@ class passenger_controller extends Controller
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 94c7cba88e3666f606e0245c4ae79adc8b8c02d0
 }
