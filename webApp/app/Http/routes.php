@@ -97,7 +97,42 @@ Route::get('/passenger_signup', function () {
 
 
 
+Route::get('ntc', function () {
+    return view('NTC.ntc');
+});
+Route::get('ntctime', function () {
+    return view('NTC.ntcTimeTable');
+});
 
+Route::get('addnewbus', function () {
+    return view('NTC.addNewBus');
+});
+
+Route::get('addnewoperator', function () {
+    return view('NTC.addNewOperator');
+});
+
+Route::get('changeroute', function () {
+    return view('NTC.routeChange');
+});
+
+Route::get('/changeoperator', function () {
+    return view('NTC.operatorChange');
+});
+
+Route::get('allroutes', 'ntcController@allRoutes');
+Route::get('allstations', 'ntcController@allStations');
+Route::get('changeindex', 'ntcController@index');
+Route::post('/ntcsearch/{x}', ['uses'=>'ntcController@search','as'=>'search']);
+Route::post('/ntcsearchoperator/{x}', ['uses'=>'ntcController@searchOperator','as'=>'search2']);
+Route::post('/ntcstationsearch/{x}', ['uses'=>'ntcController@autocomplete','as'=>'searchstation']);
+Route::get('alloperators', 'ntcController@allOperators');
+Route::get('addnewoperator', 'ntcController@addNewOperator');
+Route::get('addnewroute1', 'ntcController@addNewRoute');
+Route::get('addnewstation', 'ntcController@addNewStation');
+
+Route::get('/editroute/{route_id}', ['uses'=>'ntcController@editRoute','as'=>'editRoute']);
+Route::get('/editoperator/{operator_id}', ['uses'=>'ntcController@editOperator','as'=>'editOperator']);
 
 
 
@@ -531,6 +566,14 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 
+
+
+
+    Route::post('/submitaddroute', 'ntcController@addRoute');
+    Route::post('/submitaddoperator', 'ntcController@addOperator');
+    Route::post('/submitaddstation', 'ntcController@addStation');
+
+    Route::post('/submitIntermediate', 'ntcController@addIntermediate');
 
 
 

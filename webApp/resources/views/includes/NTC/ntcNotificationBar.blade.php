@@ -1,4 +1,4 @@
-<div class="container" style="padding-bottom:50px ">
+<div class=" container-fluid " style="padding-bottom:50px ">
     <div class="row">
         <div class="col s12 ">
             <div class="card  blue-grey">
