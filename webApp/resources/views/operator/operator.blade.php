@@ -1,7 +1,7 @@
 @extends('layout.operator_master')
 
 @section('name')
-    <p class="grey-text text-lighten-4">{{ $results->name }}</p>
+    <p class="grey-text text-lighten-4"></p>
 @endsection
 
 @section('tab5')

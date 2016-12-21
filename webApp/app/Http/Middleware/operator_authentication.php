@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authentication
+class operator_authentication
 {
     /**
      * Handle an incoming request.
