@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <div class="container">
     <table class="responsive-table">
         <thead>
         <tr>
@@ -56,9 +57,9 @@
 
         </tbody>
     </table>
-    <a class="btn waves-effect waves-light" type="button" name="action" href="/passenger_home">Exit
+    <a class="btn waves-effect waves-light" style="margin-top: 5%" type="button" name="action" href="/passenger_home">Exit
         <i class="material-icons right">send</i>
     </a>
 
-
+    </div>
 @endsection
