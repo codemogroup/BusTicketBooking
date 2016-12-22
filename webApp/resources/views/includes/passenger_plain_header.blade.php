@@ -6,9 +6,9 @@
 
             {{--right top corner links--}}
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Profile</a></li>
-                <li><a href="">Settings</a></li>
-                <li><a href="">Sign out</a></li>
+                {{--<li><a href="">Profile</a></li>
+                <li><a href="">Settings</a></li>--}}
+                <li><a href="passenger_signout">Sign out</a></li>
             </ul>
 
             {{----}}

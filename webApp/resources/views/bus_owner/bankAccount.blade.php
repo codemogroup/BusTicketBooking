@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Add Bus
+    Bank account
 @endsection
 @section('tab1')
     class="active"

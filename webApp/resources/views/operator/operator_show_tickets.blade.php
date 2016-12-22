@@ -122,7 +122,7 @@
         <tbody>
 
         @foreach($results as $results)
-
+            @if ( $results->status=='0')
         <tr>
             <td> {{ $results->date }}</td>
             <td>{{$results->nic}}</td>
@@ -184,7 +184,70 @@
                 </form>
             </td>
         </tr>
+@else
+            <tr>
+                <td> {{ $results->date }}</td>
+                <td>{{$results->nic}}</td>
+                <td>{{ $results->name}}</td>
+                <td> {{ $results->number_plate }}</td>
+                <td> {{ $results->time }}</td>
+                <td>
+                    @if ( $results->direction=='1')
+                        {{ $results->station1 }}
+                    @else
+                        {{ $results->station2 }}
+                    @endif
+                </td>
+                <td>
+                    @if ( $results->direction=='1')
+                        {{ $results->station2 }}
+                    @else
+                        {{ $results->station1 }}
+                    @endif
+                </td>
+                <td> {{ $results->seats }} </td>
+                <td>
+                    @if ( $results->type == 'highway')
+                        {{($results->price_highway)*($results->seats)}}
+                    @elseif( $results->type == 'normal') {
+                    {{($results->price_normal)*($results->seats)}}
+                    @elseif( $results->type == 'semiluxury') {
+                    {{($results->price_normal)*3/2*($results->seats)}}
+                    @else
+                        {{($results->price_normal)*2*($results->seats)}}
+                    @endif
+                </td>
+                <td>
+                    @if ( $results->status=='1')
+                        Issued
+                    @elseif ( $results->status=='0')
+                        Not Issued
+                    @else
+                        Rejected
+                    @endif
+                </td>
+                <td>
+                    {{--<form method="post" action="submit_issue">--}}
+                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                        {{--<input type="hidden" name="booking_id" value={{ $results->booking_id }} />--}}
+                        {{--<input type="hidden" name="nic" value={{ $results->nic }} />--}}
+                        {{--<button class="btn waves-effect waves-light" type="submit" name="action">issue--}}
+                            {{--<i class="material-icons right">check_circle</i>--}}
+                        {{--</button>--}}
+                    {{--</form>--}}
+                    {{--<br>--}}
+                    {{--<form method="post" action="submit_reject">--}}
+                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                        {{--<input type="hidden" name="booking_id" value={{ $results->booking_id }} />--}}
+                        {{--<input type="hidden" name="nic" value={{ $results->nic }} />--}}
+                        {{--<button class="btn waves-effect waves-light" type="submit" name="action">reject--}}
+                            {{--<i class="material-icons right">cancel</i>--}}
+                        {{--</button>--}}
+                    {{--</form>--}}
+                </td>
+            </tr>
 
+        @endif
 
         @endforeach
 

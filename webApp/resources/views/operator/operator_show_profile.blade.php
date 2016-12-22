@@ -76,7 +76,7 @@
                 Station
             </div>
             <div class="col s6">
-                {{$results->station_id}}
+                {{$results->station}}
             </div>
 
         </div>

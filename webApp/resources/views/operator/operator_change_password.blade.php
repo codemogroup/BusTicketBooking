@@ -19,21 +19,21 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row" style="padding:10px ">
                     <div class="input-field">
-                        <input placeholder="Enter here" id="password_old" name="password_old" type="text" class="validate">
+                        <input placeholder="Enter here" id="password_old" name="password_old" type="password" class="validate">
                         <label class="active" for="first_name2" style="font-size: large">Current Password</label>
                     </div>
 
                 </div>
                 <div class="row" style="padding:10px ">
                     <div class="input-field">
-                        <input placeholder="Enter here" id="password_new" name="password_new" type="text" class="validate">
+                        <input placeholder="Enter here" id="password_new" name="password_new" type="password" class="validate">
                         <label class="active" for="first_name2" style="font-size: large">New Password</label>
                     </div>
 
                 </div>
                 <div class="row" style="padding:10px ">
                     <div class="input-field">
-                        <input placeholder="Enter here" id="password_confirm" name="password_confirm" type="text" class="validate">
+                        <input placeholder="Enter here" id="password_confirm" name="password_confirm" type="password" class="validate">
                         <label class="active" for="first_name2" style="font-size: large">Confirm Password</label>
                     </div>
 

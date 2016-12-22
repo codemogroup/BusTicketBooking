@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="col s8" id ="Middle" style="padding-top:30px">
+    <div class="col s8" id ="Middle" style="padding-top:60px">
         <form class="login-form row" style="color: #2e6da4; margin-left: 10%;width: 80%" method="post" action="operator_sign_in">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row margin">
@@ -41,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s6 m6 l6">
-                    <p class="margin right-align medium-small"><a href="forgot-password.html">Forgot password?</a>
+                    <p class="margin right-align medium-small"><a href="#"></a>
                     </p>
                 </div>
             </div>

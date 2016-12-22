@@ -42,9 +42,10 @@
     </div>
     <div class="row container">
 
-        <a class="col s4 btn" style="height: 60px" href="ownersignin">Bus owner</a>
-        <a class="col s4 btn" style="height: 60px" href="passenger_home">Book Now</a>
-        <a class="col s4 btn" style="height: 60px" href="">Operator</a>
+        <a class="col s3 btn" style="height: 60px" href="ownersignin">Bus owner</a>
+        <a class="col s3 btn" style="height: 60px" href="passenger_signin">Book Now</a>
+        <a class="col s3 btn" style="height: 60px" href="operator_signin">Operator</a>
+        <a class="col s3 btn" style="height: 60px" href="ntcsignin">NTC admin</a>
 
     </div>
     <script>

@@ -64,7 +64,7 @@
                 </div>
                 <div class="col s4 input-field">
                     <input type="text" class="validate" required name="passenger_id" id="passenger_id">
-                    <label for="passenger_id">Please enter Your Id</label>
+                    <label for="passenger_id">Please enter Your id number</label>
                 </div>
 
                 <div class="col s4" >

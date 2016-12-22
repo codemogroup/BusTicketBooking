@@ -16,8 +16,28 @@ class ntcController extends Controller
 {
 
 
+    public function signIn(Request $request)
+    {
+        $this->busRequests();
+        $id=$request['id'];
+        $pw=$request['password'];
+        $count =DB::select('select ntc_get_user_count(?,?) as x',[$id,$pw] );
+        $count1=$count[0]->x;
+        /*return ($count1)+1*/;
+
+        if ($count1==0){
+            return view('NTC.signIn');
+        }else {
+            
+            return view('NTC.ntc');
+        }
+
+    }
+
+
     public function addRoute(Request $request)
     {
+        $this->busRequests();
         $base_id=0;
         $baseIDs = DB::select("select station_id from main_stations where station='".$request['base']."'");
         foreach ($baseIDs as $baseID){
@@ -67,6 +87,7 @@ class ntcController extends Controller
 
     public function addIntermediate(Request $request)
     {
+        $this->busRequests();
         $route_id=$request['routeid'];
         $prior=$request['priors'];
         $main=$request['mains'];
@@ -89,8 +110,28 @@ class ntcController extends Controller
 
     }
 
+
+    public function saveNewOperatorStation(Request $request)
+    {
+        $this->busRequests();
+        $station=$request['new'];
+        $results = DB::select("select station_id from main_stations where station='".$station."'");
+
+
+        DB::table('operator')
+            ->where('operator_id', $request['opeid'])
+            ->update(['station_id' => $results[0]->station_id]);
+
+        return  view('NTC.operatorChange');
+
+    }
+
+
+
+
     public function addOperator(Request $request)
     {
+        $this->busRequests();
         $sname=$request['autocomplete-input'];
         $results = DB::select("select station_id from main_stations where station='".$sname."'");
         $station_id=0;
@@ -120,6 +161,7 @@ class ntcController extends Controller
 
     public function addStation(Request $request)
     {
+        $this->busRequests();
         $count = DB::select('SELECT COUNT(*) as count1 FROM main_stations ');
         foreach($count as $count2){
             $var1= $count2;
@@ -137,6 +179,7 @@ class ntcController extends Controller
 
     public function allRoutes(Request $request)
     {
+        $this->busRequests();
         DB::statement(' drop view if exists ntcstation1;');
         DB::statement(' drop view if exists ntcstation2;');
         DB::statement(' drop view if exists ntcallroutes;');
@@ -149,27 +192,44 @@ class ntcController extends Controller
     }
 
     public function allStations(Request $request)
+        
     {
+        $this->busRequests();
         $results = DB::select('select * from main_stations');
         return view('NTC.allStations', ['results' => $results ]);
 
     }
 
+    
+
     public function allOperators(Request $request)
     {
+        $this->busRequests();
+
         $results = DB::select('select * from operator join main_stations on operator.station_id=main_stations.station_id ');
         return view('NTC.allOperators', ['results' => $results ]);
     }
 
     public function addNewOperator(Request $request)
     {
+        $this->busRequests();
         $count = DB::select('SELECT COUNT(*) as count1 FROM operator ');
         return view('NTC.addNewOperator', ['count' => $count ]);
 
     }
 
+
+    public function busRequests()
+    {
+        
+
+
+
+    }
+
     public function addNewRoute(Request $request)
     {
+        $this->busRequests();
         $count = DB::select('SELECT COUNT(*) as count1 FROM route ');
 
         return view('NTC.addNewRoute', ['count' => $count ]);
@@ -178,6 +238,7 @@ class ntcController extends Controller
 
     public function addNewStation(Request $request)
     {
+        $this->busRequests();
         $count = DB::select('SELECT COUNT(*) as count1 FROM main_stations ');
 
         return view('NTC.addNewStation', ['count' => $count ]);
@@ -205,13 +266,35 @@ class ntcController extends Controller
                         '<td>' . $route->route_no . '</td>' .
                         '<td>' . $route->station1 . '</td>' .
                         '<td>' . $route->station2 . '</td>' .
-                        '<td><a type="button" id="' . $route->route_id . 'Btn" class="waves-effect waves-light btn" href="/editroute/'.$route->route_id.'" >Edit</a></td>' .
+                        '<td><a type="button" ' . $route->route_id . 'Btn" class="waves-effect waves-light btn" href="/editroute/'.$route->route_id.'" >Edit</a></td>' .
                         '</tr>';
 
                 }
                 return $output;
 
             }
+    }
+
+    public function busSearch($x){
+
+
+        $output = "";
+
+        $buses = DB::table('bus')->where('number_plate', 'LIKE', '%' . $x . '%')
+            ->get();
+        if ($buses) {
+            foreach ($buses as $key => $bus) {
+                $output .= '<tr>' .
+                    '<td>' . $bus->number_plate . '</td>' .
+                    '<td>' . $bus->type . '</td>' .
+                    '<td>' . $bus->no_of_seats . '</td>' .
+                    '<td>' . $bus->seats_for_booking . '</td>' .
+                    '</tr>';
+
+            }
+            return $output;
+
+        }
     }
 
 
@@ -241,7 +324,20 @@ class ntcController extends Controller
        }
     }
 
+
+    public function editOperator($operator_id)
+    {
+        $this->busRequests();
+        $results = DB::select("select * from operator where operator_id='".$operator_id."'");
+        $station = DB::select("select station from main_stations where station_id='".$results[0]->station_id."'");
+
+
+        return view('NTC.operatorEdit', ['result' => $results ,'station' => $station]);
+
+    }
+
     public function editRoute($route_id){
+        $this->busRequests();
         $base=null;
         $end=null;
         $routeno=0;
@@ -259,11 +355,7 @@ class ntcController extends Controller
 
     }
 
-    public function editOperator($operator_id)
-    {
-
-
-    }
+    
     public function stationSearch($x){
 
         $stations = DB::table('main_stations')->where('station', 'LIKE', '%' . $x . '%')->get();

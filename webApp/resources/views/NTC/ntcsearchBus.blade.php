@@ -20,7 +20,7 @@
                                 <form >
                                     <div class="input-field">
 
-                                        <input class="form-control" placeholder="Search Using Name or NIC" name="search" id="search" type="search"  required>
+                                        <input class="form-control" placeholder="Search Using Number Plate" name="search" id="search" type="search"  required>
 
                                         <label for="search"><i class="material-icons">search</i></label>
                                         <i class="material-icons">close</i>
@@ -32,13 +32,10 @@
                     <table class="table table-bordered table-hover" style="padding-top: 10px">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>NIC</th>
-                            <th>Telephone</th>
-                            <th>Address</th>
-                            <th>E-Mail</th>
-                            <th>Station</th>
-                            <th>Edit</th>
+                            <th>No Plate</th>
+                            <th>Type</th>
+                            <th>No of Station</th>
+                            <th>Seats for Booking</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,8 +46,6 @@
             </div>
         </div>
     </div>
-
-
     <script type="text/javascript">
 
         $('#search').keyup(function () {
@@ -59,7 +54,7 @@
             if(value!=""){
                 $.ajax({
                     type:'POST',
-                    url:'/ntcsearchoperator/'+value,
+                    url:'/bussearch/'+value,
                     data:'_token=<?php echo csrf_token() ?>',
 
                     success:function (data) {

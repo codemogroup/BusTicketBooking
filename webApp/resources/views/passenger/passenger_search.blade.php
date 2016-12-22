@@ -12,6 +12,13 @@
 @section('content')
 
     <div class="container" style="margin-top: 9%">
+        @if(Session::has('message'))
+            <div class="row container" style="margin-bottom: 5%">
+                <div class="col-md-4 col-md-offset-4 success">
+                    {{Session::get('message')}}
+                </div>
+            </div>
+        @endif
 
         <form class="col s12" method="post" action="passengerSearch">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

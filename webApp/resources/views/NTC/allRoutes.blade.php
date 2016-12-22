@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <table class="highlight bordered responsive-table" style="padding: 5px">
+    <table class="highlight bordered responsive-table" style="padding: 50px">
         <thead>
         <tr style="background-color: rgba(71, 58, 83, 0.29)">
             <th data-field="routeNO">Route No</th>

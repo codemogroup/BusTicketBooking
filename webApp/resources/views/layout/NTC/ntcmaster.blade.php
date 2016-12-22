@@ -36,7 +36,7 @@
 {{--    @include('includes.footer')--}}
     <div class="row" >
         <div class="col s3 " id="leftcolumn" >
-            @include('includes.NTC.ntcNotificationBar')
+{{--            @include('includes.NTC.ntcNotificationBar')--}}
         </div>
         <div class="col s9 " id="rightcolumn">
             <div>

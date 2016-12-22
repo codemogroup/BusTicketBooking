@@ -16,7 +16,7 @@ NIC Admin
                      <div class="form-group">
 
                          <nav >
-                             <div class="nav-wrapper">
+                             <div class="nav-wrapper" style="background-color: #2e6da4">
                                  <form >
                                      <div class="input-field">
 

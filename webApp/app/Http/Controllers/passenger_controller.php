@@ -101,12 +101,18 @@ class passenger_controller extends Controller{
 
 
         if (empty($result)) {
+
             DB::insert('insert into customer(name,nic,telephone,address) values(?,?,?,?)', [
                 $passenger_name,
                 $nic,
                 $telephone,
                 $address
             ]);
+            $customer_id=DB::select('select customer_id from customer where (name,nic,telephone,address)= (?,?,?,?)',[ $passenger_name,
+                $nic,
+                $telephone,
+                $address])[0]->customer_id;
+            session()->put('customer',$customer_id);
             return redirect('/passenger_home')->with(['nic' => $nic]);
 
         } else {
@@ -126,14 +132,23 @@ class passenger_controller extends Controller{
         $count=$result[0]->x;
         
 
+
         if($count==0){
             return redirect('/passenger_signin');
         } else {
+            $customer_id=DB::select('select customer_id from customer where (nic)= (?)',[$nic])[0]->customer_id;
+            session()->put('customer',$customer_id);
             return redirect('/passenger_home');
         }
 
     }
 
+
+    public function passengerSignout(){
+        
+        session()->remove('customer');
+        return redirect('/');
+    }
 
 
 
@@ -571,7 +586,11 @@ class passenger_controller extends Controller{
     {
 
 //        return $fare_id;
-        $customer_id = $request['passenger_id'];
+        $customer_id_card = $request['passenger_id'];
+
+        $customer_id=DB::select('select customer_id from customer where nic=?',[$customer_id_card])[0]->customer_id;
+
+
         $cusArray = $this->getCustomers();
         if (in_array($customer_id, $cusArray)) {
 //
@@ -627,6 +646,10 @@ class passenger_controller extends Controller{
             $date, $seats, $bus_id, $journey_id, $customer_id, $fare_id
         ]);
 
+        $bookingId=DB::select('select booking_id from booking where (date,seats,bus_id,journey_id,customer_id,fare_id)=(?,?,?,?,?,?)',[
+            $date, $seats, $bus_id, $journey_id, $customer_id, $fare_id
+        ])[0]->booking_id;
+        session()->put('message',"You have successfully made a booking booking id : ".$bookingId);
         return view('passenger.passenger_search');
     }
 

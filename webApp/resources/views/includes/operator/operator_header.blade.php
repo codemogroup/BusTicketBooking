@@ -18,7 +18,7 @@
             {{--navbar--}}
             <ul class="tabs tabs-transparent">
                 <li class="tab"><a target="_self" @yield('tab5') href="operator"><i class="material-icons left">home</i>home</a></li>
-                <li class="tab"><a target="_self" @yield('tab1') href="operator_new_booking"><i class="material-icons left">subtitles</i>new booking</a></li>
+
                 <li class="tab"><a target="_self" @yield('tab2') href="operator_search_tickets"><i class="material-icons left">done</i>issue tickets</a></li>
             </ul>
         </div>
